@@ -1,4 +1,4 @@
-# Mini-Golf game
+# Mini-Golf game (DOOS Golf)
 Those mini-golf games out here are always containing silly, too-much-gimmicked and luck-based courses. How can you show your real mini-golf skills then? There you got our concept of this project! To begin with, we will make 5 dead serious and 5 platform based courses. Hopefully, we will expand it a lot more later!
 
 ## Game mechanics - standard mini-golf
@@ -6,7 +6,7 @@ Firstly, you have got to choose where to place your ball in the very beginning o
 
 The game will support multiplayer offline, up to 4-6 players.
 
-## Game mechanincs - platform mini-golf
+## Game mechanics - platform mini-golf
 
 ### Trello
 https://trello.com/b/19F7S9vl/minigolfsspel-unityprojekt
