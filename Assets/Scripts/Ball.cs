@@ -9,14 +9,17 @@ public class Ball : MonoBehaviour {
     public Rigidbody2D hookRb;
     public GameObject hook;
 
-    // Variables
+    // Public variables
     [SerializeField] public float releaseTime = 0.5f;
     [SerializeField] public float maxDragDistance = 2f;
-
-    private bool isPressed = false;
-    private bool isBallMoving = false;
     public bool allowCameraMove = false;
 
+    // Private variables
+    private bool isPressed = false;
+    private bool isBallMoving = false;
+    private bool alreadyExecuted = false;
+
+    // Update ()
     private void Update ()
     {
         if (isPressed)
@@ -29,25 +32,31 @@ public class Ball : MonoBehaviour {
                 rb.position = mousePos;
         }
 
+        if (!alreadyExecuted && rb.velocity.magnitude <= 0f)
+            UpdateHookPosition();
+
     }
 
+    // Updating hook's position into ball's position, needed
+    // for shooting the ball again
     private void UpdateHookPosition()
     {
         Debug.Log("UpdateHookPosition() running");
-        if (rb.velocity.magnitude < 0.1f)
-        {
-            isBallMoving = false;
-            hook.gameObject.transform.position = transform.position;
-        }
+        isBallMoving = false;
+        hook.gameObject.transform.position = transform.position;
+        alreadyExecuted = true;
     }
 
+    // Executes as soon as mouse click is down
     private void OnMouseDown()
     {
+        GetComponent<SpringJoint2D>().enabled = true;
         allowCameraMove = false;
         isPressed = true;
         rb.isKinematic = true;
     }
 
+    // Executes as soon as mouse click is released
     private void OnMouseUp()
     {
         allowCameraMove = true;
@@ -57,15 +66,15 @@ public class Ball : MonoBehaviour {
         StartCoroutine(Release());
     }
 
+    // This coroutine shoots the ball, using component "SpringJoint2D"
     IEnumerator Release()
     {
         isBallMoving = true;
 
         yield return new WaitForSeconds(releaseTime);
-
         GetComponent<SpringJoint2D>().enabled = false;
-
         yield return new WaitForSeconds(2f);
 
+        alreadyExecuted = false;
     }
 }
