@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour {
                 rb.position = mousePos;
         }
 
-        if (!alreadyExecuted && rb.velocity.magnitude <= 0f) // alreadyExecuted prevents it from running every frame
+        if (!alreadyExecuted && rb.velocity.magnitude <= 0.05f) // alreadyExecuted prevents it from running every frame
         {
             isBallMoving = false;
             UpdateHookPosition();
@@ -52,7 +52,7 @@ public class Ball : MonoBehaviour {
     // Executes as soon as mouse click is down
     private void OnMouseDown()
     {
-        if (rb.velocity.magnitude == 0f) // Checks if ball is not moving
+        if (rb.velocity.magnitude <= 0.05f) // Checks if ball is not moving
         {
             GetComponent<SpringJoint2D>().enabled = true;
             allowCameraMove = false;
@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour {
     // Executes as soon as mouse click is released
     private void OnMouseUp()
     {
-        if (rb.velocity.magnitude == 0f)
+        if (rb.velocity.magnitude <= 0.05f)
         {
             allowCameraMove = true;
             isPressed = false;
@@ -88,6 +88,6 @@ public class Ball : MonoBehaviour {
 
     public void DestroyBall()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }

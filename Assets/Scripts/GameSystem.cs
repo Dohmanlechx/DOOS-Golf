@@ -7,11 +7,13 @@ public class GameSystem : MonoBehaviour {
     // Cached references
     public GameObject ball;
     public Rigidbody2D ballSpeed;
+    public ParticleSystem particles;
 
     private void Start()
     {
         ball = FindObjectOfType<GameObject>();
         ballSpeed = FindObjectOfType<Rigidbody2D>();
+        particles = FindObjectOfType<ParticleSystem>();
     }
 
     void Update () {
@@ -25,6 +27,7 @@ public class GameSystem : MonoBehaviour {
         {
             Debug.Log("Goal!");
             FindObjectOfType<Ball>().DestroyBall();
+            particles.Play();
         }
     }
 }
