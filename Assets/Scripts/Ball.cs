@@ -32,9 +32,11 @@ public class Ball : MonoBehaviour {
                 rb.position = mousePos;
         }
 
-        if (!alreadyExecuted && rb.velocity.magnitude <= 0f)
+        if (!alreadyExecuted && rb.velocity.magnitude <= 0f) // alreadyExecuted prevents it from running every frame
+        {
+            isBallMoving = false;
             UpdateHookPosition();
-
+        }
     }
 
     // Updating hook's position into ball's position, needed
@@ -50,20 +52,26 @@ public class Ball : MonoBehaviour {
     // Executes as soon as mouse click is down
     private void OnMouseDown()
     {
-        GetComponent<SpringJoint2D>().enabled = true;
-        allowCameraMove = false;
-        isPressed = true;
-        rb.isKinematic = true;
+        if (rb.velocity.magnitude == 0f) // Checks if ball is not moving
+        {
+            GetComponent<SpringJoint2D>().enabled = true;
+            allowCameraMove = false;
+            isPressed = true;
+            rb.isKinematic = true;
+        }
     }
 
     // Executes as soon as mouse click is released
     private void OnMouseUp()
     {
-        allowCameraMove = true;
-        isPressed = false;
-        rb.isKinematic = false;
-        
-        StartCoroutine(Release());
+        if (rb.velocity.magnitude == 0f)
+        {
+            allowCameraMove = true;
+            isPressed = false;
+            rb.isKinematic = false;
+
+            StartCoroutine(Release());
+        }
     }
 
     // This coroutine shoots the ball, using component "SpringJoint2D"
