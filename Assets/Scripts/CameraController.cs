@@ -15,7 +15,10 @@ public class CameraController : MonoBehaviour {
 
 	void LateUpdate ()
     {
-        if (FindObjectOfType<Ball>().allowCameraMove)
-        transform.position = ball.transform.position + offset;
+        if (ball != null)
+        {
+            if (FindObjectOfType<Ball>().allowCameraMove)
+                transform.position = ball.transform.position + offset;
+        }
 	}
 }

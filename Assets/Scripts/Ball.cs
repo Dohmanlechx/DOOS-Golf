@@ -85,4 +85,9 @@ public class Ball : MonoBehaviour {
 
         alreadyExecuted = false;
     }
+
+    public void DestroyBall()
+    {
+        Destroy(gameObject);
+    }
 }
