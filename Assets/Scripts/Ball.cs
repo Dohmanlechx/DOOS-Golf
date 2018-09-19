@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour {
     [SerializeField] public float maxDragDistance = 2f;
 
     private bool isPressed = false;
+    public bool movingCamera = false;
 
 	void Update ()
     {
@@ -29,15 +30,17 @@ public class Ball : MonoBehaviour {
 
     private void OnMouseDown()
     {
+        movingCamera = false;
         isPressed = true;
         rb.isKinematic = true;
     }
 
     private void OnMouseUp()
     {
+        movingCamera = true;
         isPressed = false;
         rb.isKinematic = false;
-
+        
         StartCoroutine(Release());
     }
 
