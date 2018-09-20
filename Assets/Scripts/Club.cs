@@ -50,6 +50,8 @@ public class Club : MonoBehaviour
             isBallMoving = false;
             UpdateHookPosition();
         }
+
+        Physics2D.IgnoreLayerCollision(8, 9);
     }
 
     // Updating hook's position into ball's position, needed
