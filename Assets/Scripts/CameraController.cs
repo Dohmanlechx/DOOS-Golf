@@ -17,7 +17,6 @@ public class CameraController : MonoBehaviour {
     {
         if (ball != null)
         {
-            if (FindObjectOfType<Ball>().allowCameraMove)
                 transform.position = ball.transform.position + offset;
         }
 	}
