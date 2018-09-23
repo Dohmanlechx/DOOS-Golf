@@ -8,12 +8,13 @@ public class Club : MonoBehaviour
 {
 
     public float speed = 5f;
-    public Transform target;
+    public Transform ballTarget;
 
     // Cached references
-    public Rigidbody2D rb;
-    public Rigidbody2D hookRb;
-    public GameObject hook;
+    public Ball ball;
+    public Rigidbody2D clubRb;
+    public Rigidbody2D clubHookRb;
+    public GameObject clubHook;
 
     // Public variables
     [SerializeField] public float releaseTime = 0.5f;
@@ -24,6 +25,13 @@ public class Club : MonoBehaviour
     private bool isPressed = false;
     private bool isBallMoving = false;
     private bool alreadyExecuted = false;
+    private Vector3 ballPos;
+
+    private void Start()
+    {
+        ball = FindObjectOfType<Ball>();
+        clubHook.gameObject.transform.position = ball.transform.position;
+    }
 
     // Update ()
     private void Update()
@@ -31,27 +39,30 @@ public class Club : MonoBehaviour
 
         if (isPressed)
         {
-            Vector2 direction = target.position - transform.position;
+            clubHook.gameObject.transform.position = ball.transform.position;
+
+            Vector2 direction = ballTarget.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            rotation *= Quaternion.Euler(0, 0,-90);
+            rotation *= Quaternion.Euler(0, 0, -90);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (Vector3.Distance(mousePos, hookRb.position) > maxDragDistance)
-                rb.position = hookRb.position + (mousePos - hookRb.position).normalized * maxDragDistance;
+            if (Vector3.Distance(mousePos, clubHookRb.position) > maxDragDistance)
+                clubRb.position = clubHookRb.position + (mousePos - clubHookRb.position).normalized * maxDragDistance;
             else
-                rb.position = mousePos;
+                clubRb.position = mousePos;
         }
 
-        if (!alreadyExecuted && rb.velocity.magnitude <= 0.05f) // alreadyExecuted prevents it from running every frame
+        if (!alreadyExecuted && ball.rb.velocity.magnitude <= 0.05f) // alreadyExecuted prevents it from running every frame
         {
             isBallMoving = false;
             UpdateHookPosition();
         }
 
         Physics2D.IgnoreLayerCollision(8, 9);
+
     }
 
     // Updating hook's position into ball's position, needed
@@ -59,31 +70,36 @@ public class Club : MonoBehaviour
     private void UpdateHookPosition()
     {
         Debug.Log("UpdateHookPosition() running");
+        ballPos = ballTarget.position;
+        clubHook.gameObject.transform.position = ballPos;
+        Debug.Log(ballPos);
+        ballPos += new Vector3(0f, -0.5f, 0f);
+        Debug.Log(ballPos);
+        transform.position = ballPos;
         isBallMoving = false;
-        hook.gameObject.transform.position = transform.position;
         alreadyExecuted = true;
     }
 
     // Executes as soon as mouse click is down
     private void OnMouseDown()
     {
-        if (rb.velocity.magnitude <= 0.05f) // Checks if ball is not moving
+        if (clubRb.velocity.magnitude <= 0.05f) // Checks if ball is not moving
         {
             GetComponent<SpringJoint2D>().enabled = true;
             allowCameraMove = false;
             isPressed = true;
-            rb.isKinematic = true;
+            clubRb.isKinematic = true;
         }
     }
 
     // Executes as soon as mouse click is released
     private void OnMouseUp()
     {
-        if (rb.velocity.magnitude <= 0.05f)
+        if (clubRb.velocity.magnitude <= 0.05f)
         {
             allowCameraMove = true;
             isPressed = false;
-            rb.isKinematic = false;
+            clubRb.isKinematic = false;
 
             StartCoroutine(Release());
         }

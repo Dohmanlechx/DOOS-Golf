@@ -716,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &448575516
 Transform:
   m_ObjectHideFlags: 0
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 635574715}
   - component: {fileID: 635574714}
   m_Layer: 0
-  m_Name: ClubHook
+  m_Name: Club Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,11 +877,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635574712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -3.131, z: -0.20898438}
-  m_LocalScale: {x: 0.8125, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.19999999, y: 0.6, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1219476658}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &635574714
 SpriteRenderer:
@@ -1040,7 +1040,7 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 448575518}
+  m_ConnectedRigidBody: {fileID: 635574715}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
@@ -1064,7 +1064,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 1
   m_AngularDrag: 1
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 05c26987c5dc14c4286fa2923837725b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1107,10 +1107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  target: {fileID: 1187944768}
-  rb: {fileID: 1219476654}
-  hookRb: {fileID: 448575518}
-  hook: {fileID: 448575515}
+  ballTarget: {fileID: 1187944768}
+  ball: {fileID: 1678029384}
+  clubRb: {fileID: 1219476654}
+  clubHookRb: {fileID: 635574715}
+  clubHook: {fileID: 635574712}
   releaseTime: 0.5
   maxDragDistance: 2
   allowCameraMove: 0
@@ -1148,7 +1149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1169,7 +1170,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.002, y: -3.131, z: -0.20898438}
   m_LocalScale: {x: 4.0625, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 635574713}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1185,6 +1187,7 @@ GameObject:
   - component: {fileID: 1678029385}
   - component: {fileID: 1678029387}
   - component: {fileID: 1678029383}
+  - component: {fileID: 1678029384}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1207,6 +1210,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &1678029384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1678029382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9314698873f385443984789709a067bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1678029387}
+  releaseTime: 0.5
+  maxDragDistance: 2
+  allowCameraMove: 0
 --- !u!212 &1678029385
 SpriteRenderer:
   m_ObjectHideFlags: 0

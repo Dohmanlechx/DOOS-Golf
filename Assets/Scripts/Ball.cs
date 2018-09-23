@@ -6,8 +6,8 @@ public class Ball : MonoBehaviour {
 
     // Cached references
     public Rigidbody2D rb;
-    public Rigidbody2D hookRb;
-    public GameObject hook;
+    //public Rigidbody2D hookRb;
+    //public GameObject hook;
 
     // Public variables
     [SerializeField] public float releaseTime = 0.5f;
@@ -18,6 +18,13 @@ public class Ball : MonoBehaviour {
     private bool isPressed = false;
     private bool isBallMoving = false;
     private bool alreadyExecuted = false;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    /*
 
     // Update ()
     private void Update ()
@@ -35,7 +42,7 @@ public class Ball : MonoBehaviour {
         if (!alreadyExecuted && rb.velocity.magnitude <= 0.05f) // alreadyExecuted prevents it from running every frame
         {
             isBallMoving = false;
-            UpdateHookPosition();
+            //UpdateHookPosition();
         }
     }
 
@@ -85,6 +92,8 @@ public class Ball : MonoBehaviour {
 
         alreadyExecuted = false;
     }
+
+    */
 
     public void DestroyBall()
     {
