@@ -350,11 +350,6 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1678029384}
-    - target: {fileID: 50670326762886754, guid: 7df44ad6e426e34478675469bc2f09d9,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7df44ad6e426e34478675469bc2f09d9, type: 2}
   m_IsPrefabAsset: 0
