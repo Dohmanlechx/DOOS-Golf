@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4236923123667196}
   - component: {fileID: 212581407352838846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852696120975572}
   - component: {fileID: 212816079831093572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4054245716268450}
   - component: {fileID: 212973683450506194}
   - component: {fileID: 68898242710754554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054789983371506}
   - component: {fileID: 212542355476031434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345994349942242}
   - component: {fileID: 212555622349425824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4172715843639824}
   - component: {fileID: 212344210874691204}
   - component: {fileID: 68164675291510148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056939718075256}
   - component: {fileID: 212638014248452464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4391416257012896}
   - component: {fileID: 212377566346358424}
   - component: {fileID: 68823693522510708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4412402537805560}
   - component: {fileID: 212961064931540956}
   - component: {fileID: 68211389326010044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4649474987911346}
   - component: {fileID: 212481659948029918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4843918064301230}
   - component: {fileID: 212504217111411678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 4248242956650580}
   - component: {fileID: 212623722330982734}
   - component: {fileID: 68819227362488830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4655135876399510}
   - component: {fileID: 212491941389701096}
   - component: {fileID: 68765851809596084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 4500513676457438}
   - component: {fileID: 212059712142219718}
   - component: {fileID: 60459557640580738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4790743640543362}
   - component: {fileID: 212875177164945182}
   - component: {fileID: 68933095164035890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4891688806998792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barricade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 4756385900932138}
   - component: {fileID: 212080426948359532}
   - component: {fileID: 68112195149710370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightCorner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 4105071526227130}
   - component: {fileID: 212286568388540434}
   - component: {fileID: 68031511507558330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4654429407106456}
   - component: {fileID: 212041723597162230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barricade (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 4182192628228396}
   - component: {fileID: 212566685191888248}
   - component: {fileID: 68144314088756640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177798116111362}
   - component: {fileID: 212402975995978094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4867369610811622}
   - component: {fileID: 212360568980067612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 4458612715408880}
   - component: {fileID: 212865919089329736}
   - component: {fileID: 68577423074965190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 4089007709704282}
   - component: {fileID: 212271446749307786}
   - component: {fileID: 60992535777435714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 4004391305537416}
   - component: {fileID: 212964294171941956}
   - component: {fileID: 68226005793445986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 4358122655759760}
   - component: {fileID: 212421775630788708}
   - component: {fileID: 68311573910245854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 4489435470596102}
   - component: {fileID: 212626026005621284}
   - component: {fileID: 68908099981485026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 4241445855298176}
   - component: {fileID: 212985445028311378}
   - component: {fileID: 68925467896208754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 4228790281634272}
   - component: {fileID: 212145346100891538}
   - component: {fileID: 60981659532564700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 4094784256191562}
   - component: {fileID: 212214701126717498}
   - component: {fileID: 68845382921008526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 4301582219539034}
   - component: {fileID: 212851333688885442}
   - component: {fileID: 68715174394493154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 4015662903501422}
   - component: {fileID: 198919598316355204}
   - component: {fileID: 199927999050844654}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4422201794825932}
   - component: {fileID: 212739526753589598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 4657836947657732}
   - component: {fileID: 212597715245447402}
   - component: {fileID: 68291588029872316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531564849799732}
   - component: {fileID: 212088003696023148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4237167865969500}
   - component: {fileID: 212460483739807616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4219351071789844}
   - component: {fileID: 212912713650543538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 4211558294806416}
   - component: {fileID: 212517438146817348}
   - component: {fileID: 68195539215795832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 4618397116680468}
   - component: {fileID: 212096938865169286}
   - component: {fileID: 68550915963426660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 4196575564963026}
   - component: {fileID: 212019046419831526}
   - component: {fileID: 60707132491009498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4200208137600466}
   - component: {fileID: 212906653916378468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 4746652591084182}
   - component: {fileID: 212544888520161440}
   - component: {fileID: 60625669601306488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 4652784487424432}
   - component: {fileID: 212526745751610408}
   - component: {fileID: 68536914202242058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4948899468953538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Course 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 4255019326345534}
   - component: {fileID: 212938019690053168}
   - component: {fileID: 61662078332394466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barricade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4744071457001292}
   - component: {fileID: 212593284606154282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 4372766570518588}
   - component: {fileID: 212845081190100268}
   - component: {fileID: 68851517018507708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645215951673164}
   - component: {fileID: 212068088473003294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4203819609675996}
   - component: {fileID: 212473161964758464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 4601675656912386}
   - component: {fileID: 212234749535751510}
   - component: {fileID: 68845162812884030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 4312879843556860}
   - component: {fileID: 212666413602660486}
   - component: {fileID: 68296053820611670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177812461529270}
   - component: {fileID: 212443587130471426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 4049670632642770}
   - component: {fileID: 212097475066920824}
   - component: {fileID: 68123637155883898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4012986086615110}
   - component: {fileID: 212656897201386666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4480887114643844}
   - component: {fileID: 212557506055355138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 4522742266879410}
   - component: {fileID: 212761207914182872}
   - component: {fileID: 68794803102286060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4734307860646868}
   - component: {fileID: 212331127419581074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 4277706905592308}
   - component: {fileID: 212375818915403468}
   - component: {fileID: 68478936611539648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288781967596710}
   - component: {fileID: 212164177375699216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 4629759750461084}
   - component: {fileID: 212468981977583750}
   - component: {fileID: 60645246583347608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sharpemptycorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1014,7 @@ GameObject:
   - component: {fileID: 4692947703145122}
   - component: {fileID: 212059917785523114}
   - component: {fileID: 68424519147222898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1031,7 @@ GameObject:
   - component: {fileID: 4959790808242678}
   - component: {fileID: 212668242235937442}
   - component: {fileID: 68485208686228394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4600605847404602}
   - component: {fileID: 212512445859224386}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hole (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   - component: {fileID: 4059394915745250}
   - component: {fileID: 212873561803783384}
   - component: {fileID: 68116820453733536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808021380773350}
   - component: {fileID: 212330435086820774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,8 +1097,24 @@ GameObject:
   - component: {fileID: 4838693545684820}
   - component: {fileID: 212822665124102838}
   - component: {fileID: 68782847207919782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1945727624274804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4522256148986590}
+  - component: {fileID: 212587027853033422}
+  m_Layer: 0
+  m_Name: Black Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1114,7 +1130,7 @@ GameObject:
   - component: {fileID: 4011138478071294}
   - component: {fileID: 212631277504975516}
   - component: {fileID: 68768647278481848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1147,7 @@ GameObject:
   - component: {fileID: 4563570280233988}
   - component: {fileID: 212037686677747638}
   - component: {fileID: 68555840663092212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 45erOpen (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1164,7 @@ GameObject:
   - component: {fileID: 4872223155767830}
   - component: {fileID: 212835707518376862}
   - component: {fileID: 68812011603648310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightOpen (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,7 +1181,7 @@ GameObject:
   - component: {fileID: 4552917460251840}
   - component: {fileID: 58050178914960762}
   - component: {fileID: 114560857875275830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Goal Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835730343469196}
   - component: {fileID: 212990652304307248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,6 +1737,19 @@ Transform:
   m_Father: {fileID: 4948899468953538}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4522256148986590
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945727624274804}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 14.57, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4948899468953538}
+  m_RootOrder: 67
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4522742266879410
 Transform:
   m_ObjectHideFlags: 1
@@ -2165,6 +2194,7 @@ Transform:
   - {fileID: 4236923123667196}
   - {fileID: 4600605847404602}
   - {fileID: 4552917460251840}
+  - {fileID: 4522256148986590}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3012,8 +3042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf81c3e778b48d4b90f8347e34ef705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
-  ballSpeed: {fileID: 0}
   particles: {fileID: 0}
 --- !u!198 &198919598316355204
 ParticleSystem:
@@ -9436,6 +9464,52 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8595e61d8198b3646b1f9c087ea9afcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!212 &212587027853033422
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945727624274804}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 145acb4b761083f4c92bd83383100972, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
