@@ -7,6 +7,8 @@ Firstly, you have got to choose where to place your ball in the very beginning o
 The game will support multiplayer offline, up to 4-6 players.
 
 ## Game mechanics - platform mini-golf
+The platform mini-golf is where you really have to think and calculate your shots to traverse more difficult maps with only One shot, unlike normal mini golf where you have several. Here you will have more of an arch when it comes to shooting the ball, which will traverse the x- and y-axis. This mode is only singleplayer and does not feature a score system, it is only there for those who seek a challenge.
+
 
 ### Trello
 https://trello.com/b/19F7S9vl/minigolfsspel-unityprojekt
