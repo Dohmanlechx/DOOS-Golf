@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Club : MonoBehaviour
 {
-
-    [SerializeField] public float speed = 5f;
     public Transform ballTarget;
 
     // Cached references
@@ -17,13 +15,13 @@ public class Club : MonoBehaviour
     public GameObject clubHook;
 
     // Public variables
+    [SerializeField] public float speed = 5f;
     [SerializeField] public float releaseTime = 0.5f;
     [SerializeField] public float maxDragDistance = 2f;
     public bool allowCameraMove = false;
 
     // Private variables
     private bool isPressed = false;
-    private bool isBallMoving = false;
     private bool alreadyExecuted = false;
     private Vector3 ballPos;
 
@@ -44,10 +42,10 @@ public class Club : MonoBehaviour
 
         if (ball != null)
         {
-            if (!alreadyExecuted && ball.rb.velocity.magnitude <= 0.02f) // alreadyExecuted prevents it from running every frame
+            if (!alreadyExecuted && ball.rb.velocity.magnitude <= 0.02f)
+            // alreadyExecuted prevents it from running every frame
             {
                 MakeClubInvisible(false);
-                isBallMoving = false;
                 UpdateHookPosition();
             }
         }
@@ -58,6 +56,7 @@ public class Club : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        FindObjectOfType<GameSystem>().AddShot();
         MakeClubInvisible(true);
     }
 
@@ -72,7 +71,6 @@ public class Club : MonoBehaviour
         clubHook.gameObject.transform.position = ballPos;
         ballPos += new Vector3(0f, -0.5f, 0f);
         transform.position = ballPos;
-        isBallMoving = false;
         alreadyExecuted = true;
     }
 
@@ -123,8 +121,6 @@ public class Club : MonoBehaviour
     // This coroutine shoots the ball, using component "SpringJoint2D"
     IEnumerator Release()
     {
-        isBallMoving = true;
-
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
         yield return new WaitForSeconds(2f);
