@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4225406207014414}
   - component: {fileID: 212592530497369686}
-  - component: {fileID: 114327391008355158}
   - component: {fileID: 61745336450527950}
   - component: {fileID: 50670326762886754}
   - component: {fileID: 231945955062671768}
+  - component: {fileID: 114327391008355158}
   m_Layer: 9
   m_Name: Club
   m_TagString: Untagged
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566912418721478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -3.1, z: -0.2}
+  m_LocalPosition: {x: -0, y: -3, z: -0.2}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children:
   - {fileID: 4147770650539742}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 5
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -123,11 +123,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1566912418721478}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 05c26987c5dc14c4286fa2923837725b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.42675877}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.16, y: 1.0135174}
   m_EdgeRadius: 0
 --- !u!114 &114327391008355158
 MonoBehaviour:
@@ -151,12 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa670070aad520b46917a26806cc5af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   ballTarget: {fileID: 0}
-  ball: {fileID: 0}
+  theBall: {fileID: 0}
   clubRb: {fileID: 50670326762886754}
   clubHookRb: {fileID: 50072965138828352}
   clubHook: {fileID: 1497575015990834}
+  speed: 5
   releaseTime: 0.5
   maxDragDistance: 2
   allowCameraMove: 0
@@ -258,7 +258,7 @@ SpringJoint2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566912418721478}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 50072965138828352}
