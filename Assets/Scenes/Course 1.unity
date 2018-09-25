@@ -157,10 +157,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1194901591300786, guid: 1c372a54b670217478721413512c6b2c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c372a54b670217478721413512c6b2c, type: 2}
   m_IsPrefabAsset: 0
@@ -225,11 +221,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4232440383829040, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4232440383829040, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.83
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 4232440383829040, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -255,16 +251,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114574717465160378, guid: 10c23909cab68c9468c31777164e9b3a,
-        type: 2}
-      propertyPath: gameSystem
-      value: 
-      objectReference: {fileID: 1750031349}
-    - target: {fileID: 114574717465160378, guid: 10c23909cab68c9468c31777164e9b3a,
-        type: 2}
-      propertyPath: theClub
-      value: 
-      objectReference: {fileID: 1267946127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
   m_IsPrefabAsset: 0
@@ -584,7 +570,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267946123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -3.1, z: -0.2}
+  m_LocalPosition: {x: -0, y: -3, z: -0.2}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children:
   - {fileID: 1119600662}
@@ -602,9 +588,3 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 659937291}
   m_Script: {fileID: 11500000, guid: 9314698873f385443984789709a067bc, type: 3}
---- !u!114 &1750031349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 536449700}
-  m_Script: {fileID: 11500000, guid: 5bf81c3e778b48d4b90f8347e34ef705, type: 3}

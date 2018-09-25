@@ -20,9 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4608420110076760}
   - component: {fileID: 212537960507688504}
-  - component: {fileID: 58476997737721428}
-  - component: {fileID: 68838438728762404}
-  - component: {fileID: 68271259365464346}
   m_Layer: 0
   m_Name: CircleHorizontal
   m_TagString: Untagged
@@ -43,55 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58476997737721428
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410199954001146}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.013883591, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.20339489
---- !u!68 &68271259365464346
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410199954001146}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.49009514, y: 0.42590618}
-  - {x: 0.49801922, y: 0.42788696}
---- !u!68 &68838438728762404
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410199954001146}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.5, y: -0.4278915}
-  - {x: 0.4994135, y: -0.42913055}
 --- !u!212 &212537960507688504
 SpriteRenderer:
   m_ObjectHideFlags: 1

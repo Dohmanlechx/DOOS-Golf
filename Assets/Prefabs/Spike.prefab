@@ -20,8 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4474372024288020}
   - component: {fileID: 212716005476815848}
-  - component: {fileID: 60149259628242774}
-  - component: {fileID: 60232465423198876}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -42,76 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60149259628242774
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763574374184614}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.3027687, y: -0.42739964}
-      - {x: 0.3011055, y: -0.12115502}
-      - {x: 0.29424524, y: -0.10412979}
-      - {x: 0.28536224, y: -0.093672514}
-      - {x: 0.25583744, y: -0.0864079}
-      - {x: 0.23303986, y: -0.09386659}
-      - {x: 0.21887016, y: -0.106031895}
-      - {x: 0.21896505, y: -0.42482495}
-      - {x: -0.49810076, y: -0.42768335}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.49840164, y: -0.42706823}
---- !u!60 &60232465423198876
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763574374184614}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.4975562, y: 0.43059444}
-      - {x: -0.24238062, y: 0.42808175}
-      - {x: -0.23955584, y: 0.09506297}
-      - {x: -0.2221365, y: 0.07937503}
-      - {x: -0.18394518, y: 0.07669473}
-      - {x: -0.16071415, y: 0.10137558}
-      - {x: -0.15492678, y: 0.4260652}
-      - {x: 0.4980054, y: 0.42757154}
-      - {x: 0.5, y: 0.5}
 --- !u!212 &212716005476815848
 SpriteRenderer:
   m_ObjectHideFlags: 1

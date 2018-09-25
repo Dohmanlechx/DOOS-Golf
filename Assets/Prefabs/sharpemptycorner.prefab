@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4869593241116426}
   - component: {fileID: 212267986680796056}
-  - component: {fileID: 60934883789441006}
   m_Layer: 0
   m_Name: sharpemptycorner
   m_TagString: Untagged
@@ -41,35 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60934883789441006
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1283781813408682}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.49840164, y: -0.42387152}
-      - {x: -0.5, y: -0.5}
-      - {x: -0.41428137, y: -0.5031967}
-      - {x: -0.49899626, y: -0.4235742}
-      - {x: -0.49899626, y: -0.42387152}
 --- !u!212 &212267986680796056
 SpriteRenderer:
   m_ObjectHideFlags: 1

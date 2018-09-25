@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4592892568172008}
   - component: {fileID: 212593005941549960}
-  - component: {fileID: 68959045102930738}
   m_Layer: 0
   m_Name: PlaneAssets
   m_TagString: Untagged
@@ -41,23 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &68959045102930738
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1708717545633016}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.4808669, y: 0.5006485}
-  - {x: 0.5, y: -0.4815154}
 --- !u!212 &212593005941549960
 SpriteRenderer:
   m_ObjectHideFlags: 1
