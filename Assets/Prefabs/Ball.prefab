@@ -141,9 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 50981890104475068}
-  releaseTime: 0.5
-  maxDragDistance: 2
-  allowCameraMove: 0
 --- !u!212 &212749838903215964
 SpriteRenderer:
   m_ObjectHideFlags: 1

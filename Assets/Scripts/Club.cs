@@ -9,7 +9,7 @@ public class Club : MonoBehaviour
     public Transform ballTarget;
 
     // Cached references
-    public Ball ball;
+    public Ball theBall;
     public Rigidbody2D clubRb;
     public Rigidbody2D clubHookRb;
     public GameObject clubHook;
@@ -28,8 +28,8 @@ public class Club : MonoBehaviour
     // Start
     private void Start()
     {
-        ball = FindObjectOfType<Ball>();
-        clubHook.gameObject.transform.position = ball.transform.position;
+        theBall = FindObjectOfType<Ball>();
+        clubHook.gameObject.transform.position = theBall.transform.position;
     }
 
     // Update
@@ -40,9 +40,9 @@ public class Club : MonoBehaviour
             PreparingShoot();
         }
 
-        if (ball != null)
+        if (theBall != null)
         {
-            if (!alreadyExecuted && ball.rb.velocity.magnitude <= 0.02f)
+            if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
             {
                 MakeClubInvisible(false);
@@ -77,7 +77,7 @@ public class Club : MonoBehaviour
     // Updating the position, rotation etc for the club in realtime while preparing the shoot
     private void PreparingShoot()
     {
-        clubHook.gameObject.transform.position = ball.transform.position;
+        clubHook.gameObject.transform.position = theBall.transform.position;
 
         Vector2 direction = ballTarget.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
