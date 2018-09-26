@@ -91,10 +91,12 @@ public class Club : MonoBehaviour
 
         // Positions of player's input
         inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Vector3.Distance(inputPos, clubHookRb.position) > maxDragDistance) // TODO Need fix
-            clubRb.position = clubHookRb.position + (inputPos - clubHookRb.position).normalized * maxDragDistance;
+        if (Vector3.Distance((inputPos + (Vector2)inputOffset), clubHookRb.position) > maxDragDistance) // TODO Need fix
+        {
+            clubRb.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
+        }
         else
-            clubRb.position = inputPos + (Vector2) inputOffset;
+            clubRb.position = inputPos + (Vector2)inputOffset;
     }
 
     // Executes as soon as mouse click is down
@@ -103,7 +105,7 @@ public class Club : MonoBehaviour
         if (clubRb.velocity.magnitude <= 0.02f) // Checks if ball is not moving
         {
             inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            inputOffset = transform.position - (Vector3) inputPos;
+            inputOffset = transform.position - (Vector3)inputPos;
             GetComponent<SpringJoint2D>().enabled = true;
             allowCameraMove = false;
             isPressed = true;
