@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4662528100183004}
   - component: {fileID: 212072750845523282}
-  - component: {fileID: 60466279672868982}
   m_Layer: 0
   m_Name: SharpEdge
   m_TagString: Untagged
@@ -41,37 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60466279672868982
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640232646258958}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: -0.42663336, y: -0.49828553}
-      - {x: -0.42227316, y: -0.22187924}
-      - {x: 0.22671652, y: 0.41910434}
-      - {x: 0.49802208, y: 0.42106628}
-      - {x: 0.5, y: 0.5}
 --- !u!212 &212072750845523282
 SpriteRenderer:
   m_ObjectHideFlags: 1

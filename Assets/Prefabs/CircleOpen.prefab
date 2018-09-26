@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4554737141132302}
   - component: {fileID: 212633086150618774}
-  - component: {fileID: 58256028185430638}
   m_Layer: 0
   m_Name: CircleOpen
   m_TagString: Untagged
@@ -41,21 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58256028185430638
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1493221610145778}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.011885881, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.20483708
 --- !u!212 &212633086150618774
 SpriteRenderer:
   m_ObjectHideFlags: 1
