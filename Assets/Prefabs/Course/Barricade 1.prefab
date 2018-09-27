@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4913031650118076}
   m_Layer: 0
-  m_Name: Barricade
+  m_Name: Barricade 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
