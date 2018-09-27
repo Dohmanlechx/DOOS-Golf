@@ -42,10 +42,4 @@ public class CameraController : MonoBehaviour
                 Mathf.Clamp(transform.position.z, -10f, -10f));
         }
     }
-
-
-    //private void LateUpdate()
-    //{
-
-    //}
 }

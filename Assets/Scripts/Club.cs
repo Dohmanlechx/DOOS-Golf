@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Club : MonoBehaviour
 {
-    public Transform ballTarget;
+    //public Transform ballTarget;
 
     // Cached references
     public Ball theBall;
@@ -19,6 +19,7 @@ public class Club : MonoBehaviour
     [SerializeField] public float releaseTime = 0.5f;
     [SerializeField] public float maxDragDistance = 2f;
     public bool allowCameraMove = false;
+    public float offset = 1f;
 
     // Private variables
     private bool isPressed = false;
@@ -76,7 +77,7 @@ public class Club : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         Debug.Log("UpdateHookPosition() running");
-        ballPos = ballTarget.position;
+        ballPos = theBall.transform.position;
         clubHook.gameObject.transform.position = ballPos;
         ballPos += new Vector3(0f, -0.5f, 0f);
         transform.position = ballPos;
@@ -90,7 +91,7 @@ public class Club : MonoBehaviour
         clubHook.gameObject.transform.position = theBall.transform.position;
 
         // Facing the club to ball
-        Vector3 direction = ballTarget.position - transform.position;
+        Vector3 direction = theBall.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rotation *= Quaternion.Euler(0, 0, -90);
@@ -98,49 +99,43 @@ public class Club : MonoBehaviour
 
         // Positions of player's input
         inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Vector3.Distance((inputPos + (Vector2)inputOffset), clubHookRb.position) > maxDragDistance)
-        {
-            clubRb.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
-        }
+
+        // position = wished position to compare, this case: input
+        Vector3 position = (Vector3)Vector2.Lerp(clubRb.position, inputPos,
+                            Mathf.Clamp(Vector3.Distance(clubRb.position,
+                            inputPos), 0, 0.5f)) + (theBall.transform.position - (Vector3)inputPos).normalized * offset;
+
+        if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
+            transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         else
-        {
-            Vector2 clubPosition = inputPos + (Vector2)inputOffset;
-            clubRb.position = Vector2.Lerp(clubPosition, inputPos, 0f);
-        }
+            transform.position = position;
     }
 
     // Executes as soon as mouse click is down
     private void OnMouseDown()
     {
-        if (clubRb.velocity.magnitude <= 0.02f) // Checks if ball is not moving
-        {
-            theBall.rb.bodyType = RigidbodyType2D.Static;
+        theBall.rb.bodyType = RigidbodyType2D.Static;
 
-            inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            inputOffset = transform.position - (Vector3)inputPos;
-            GetComponent<SpringJoint2D>().enabled = true;
-            allowCameraMove = false;
-            isPressed = true;
-            shootIsReleased = false;
-            ongoingShoot = true;
-            clubRb.isKinematic = true;
-        }
+        isPressed = true;
+        ongoingShoot = true;
+        allowCameraMove = false;
+        shootIsReleased = false;
+        clubRb.isKinematic = true;
+
     }
 
     // Executes as soon as mouse click is released
     private void OnMouseUp()
     {
-        if (clubRb.velocity.magnitude <= 0.02f)
-        {
-            theBall.rb.bodyType = RigidbodyType2D.Dynamic;
+        theBall.rb.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<SpringJoint2D>().enabled = true;
 
-            allowCameraMove = true;
-            isPressed = false;
-            shootIsReleased = true;
-            clubRb.isKinematic = false;
+        isPressed = false;
+        allowCameraMove = true;
+        shootIsReleased = true;
+        clubRb.isKinematic = false;
 
-            StartCoroutine(Release());
-        }
+        StartCoroutine(Release());
     }
 
     // This coroutine shoots the ball, using component "SpringJoint2D"
