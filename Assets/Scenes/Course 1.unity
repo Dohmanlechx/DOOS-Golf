@@ -225,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4520669510468992, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4520669510468992, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -261,31 +261,6 @@ Prefab:
       propertyPath: club
       value: 
       objectReference: {fileID: 1540015861}
-    - target: {fileID: 114754307049323468, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
-        type: 2}
-      propertyPath: MIN_X
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754307049323468, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
-        type: 2}
-      propertyPath: MAX_X
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754307049323468, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
-        type: 2}
-      propertyPath: MIN_Y
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754307049323468, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
-        type: 2}
-      propertyPath: MAX_Y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 20817676318917208, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
-        type: 2}
-      propertyPath: orthographic size
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
   m_IsPrefabAsset: 0
@@ -380,21 +355,6 @@ Prefab:
       propertyPath: theBall
       value: 
       objectReference: {fileID: 1678029384}
-    - target: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9,
-        type: 2}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9,
-        type: 2}
-      propertyPath: releaseTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9,
-        type: 2}
-      propertyPath: maxDragDistance
-      value: 2.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7df44ad6e426e34478675469bc2f09d9, type: 2}
   m_IsPrefabAsset: 0
