@@ -24,6 +24,7 @@ public class Club : MonoBehaviour
     private bool isPressed = false;
     private bool alreadyExecuted = false;
     private bool shootIsReleased = false;
+    public bool ongoingShoot = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
     private Vector3 inputOffset;
@@ -51,6 +52,7 @@ public class Club : MonoBehaviour
             if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
             {
+                ongoingShoot = false;
                 MakeClubInvisible(false);
                 UpdateHookPosition();
             }
@@ -117,6 +119,7 @@ public class Club : MonoBehaviour
             allowCameraMove = false;
             isPressed = true;
             shootIsReleased = false;
+            ongoingShoot = true;
             clubRb.isKinematic = true;
         }
     }

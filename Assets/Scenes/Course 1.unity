@@ -268,7 +268,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4520669510468992, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4520669510468992, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -303,6 +303,11 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1678029382}
+    - target: {fileID: 114754307049323468, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
+        type: 2}
+      propertyPath: club
+      value: 
+      objectReference: {fileID: 1540015861}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
   m_IsPrefabAsset: 0
@@ -363,6 +368,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4232440383829040, guid: 10c23909cab68c9468c31777164e9b3a,
     type: 2}
   m_PrefabInternal: {fileID: 659937291}
+--- !u!114 &1540015861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1134859951}
+  m_Script: {fileID: 11500000, guid: fa670070aad520b46917a26806cc5af5, type: 3}
 --- !u!1 &1678029382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1502899597555058, guid: 10c23909cab68c9468c31777164e9b3a,
