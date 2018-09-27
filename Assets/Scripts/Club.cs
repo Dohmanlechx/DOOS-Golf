@@ -103,7 +103,10 @@ public class Club : MonoBehaviour
             clubRb.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         }
         else
-            clubRb.position = inputPos + (Vector2)inputOffset;
+        {
+            Vector2 clubPosition = inputPos + (Vector2)inputOffset;
+            clubRb.position = Vector2.Lerp(clubPosition, inputPos, 0f);
+        }
     }
 
     // Executes as soon as mouse click is down

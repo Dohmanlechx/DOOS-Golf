@@ -103,7 +103,7 @@ MonoBehaviour:
   ball: {fileID: 0}
   club: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  MIN_X: -1.5
-  MAX_X: 1.5
+  MIN_X: 0
+  MAX_X: 13
   MIN_Y: -0.4
-  MAX_Y: 6
+  MAX_Y: 5

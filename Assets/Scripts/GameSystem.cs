@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
@@ -26,9 +27,16 @@ public class GameSystem : MonoBehaviour
     {
         if (theBall.rb.velocity.magnitude < 3.5f)
         {
-            Debug.Log("Goal! Shots: " + shotNumber);
-            theBall.DestroyBall();
-            particles.Play();
+            StartCoroutine(Goal());
         }
+    }
+
+    IEnumerator Goal()
+    {
+        Debug.Log("Goal! Shots: " + shotNumber);
+        theBall.DestroyBall();
+        particles.Play();
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
