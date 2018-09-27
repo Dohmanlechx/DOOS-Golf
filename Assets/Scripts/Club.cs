@@ -23,6 +23,7 @@ public class Club : MonoBehaviour
     // Private variables
     private bool isPressed = false;
     private bool alreadyExecuted = false;
+    private bool shootIsReleased = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
     private Vector3 inputOffset;
@@ -30,6 +31,9 @@ public class Club : MonoBehaviour
     // Start
     private void Start()
     {
+        // Club's collider ignores Course's colliders
+        Physics2D.IgnoreLayerCollision(8, 9);
+
         theBall = FindObjectOfType<Ball>();
         clubHook.gameObject.transform.position = theBall.transform.position;
     }
@@ -51,15 +55,16 @@ public class Club : MonoBehaviour
                 UpdateHookPosition();
             }
         }
-
-        Physics2D.IgnoreLayerCollision(8, 9);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        FindObjectOfType<GameSystem>().AddShot();
-        MakeClubInvisible(true);
+        if (shootIsReleased)
+        {
+            Debug.Log("Collider!");
+            FindObjectOfType<GameSystem>().AddShot();
+            MakeClubInvisible(true);
+        }
     }
 
     // Updating hook's position into ball's position, needed
@@ -91,7 +96,7 @@ public class Club : MonoBehaviour
 
         // Positions of player's input
         inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Vector3.Distance((inputPos + (Vector2)inputOffset), clubHookRb.position) > maxDragDistance) // TODO Need fix
+        if (Vector3.Distance((inputPos + (Vector2)inputOffset), clubHookRb.position) > maxDragDistance)
         {
             clubRb.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         }
@@ -104,11 +109,14 @@ public class Club : MonoBehaviour
     {
         if (clubRb.velocity.magnitude <= 0.02f) // Checks if ball is not moving
         {
+            theBall.rb.bodyType = RigidbodyType2D.Static;
+
             inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             inputOffset = transform.position - (Vector3)inputPos;
             GetComponent<SpringJoint2D>().enabled = true;
             allowCameraMove = false;
             isPressed = true;
+            shootIsReleased = false;
             clubRb.isKinematic = true;
         }
     }
@@ -118,8 +126,11 @@ public class Club : MonoBehaviour
     {
         if (clubRb.velocity.magnitude <= 0.02f)
         {
+            theBall.rb.bodyType = RigidbodyType2D.Dynamic;
+
             allowCameraMove = true;
             isPressed = false;
+            shootIsReleased = true;
             clubRb.isKinematic = false;
 
             StartCoroutine(Release());
