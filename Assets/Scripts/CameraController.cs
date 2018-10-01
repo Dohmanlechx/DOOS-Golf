@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // Cached references
     public GameObject theBall;
     public Club theClub;
 
-    private Vector3 touchStart;
+    // Public variables
     public Vector3 offset;
     public float MIN_X;
     public float MAX_X;
     public float MIN_Y;
     public float MAX_Y;
+
+    // Private variables
+    private Vector3 touchStart;
 
     private void Start()
     {
@@ -21,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        // Allowing the player to move the camera around
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,7 +38,7 @@ public class CameraController : MonoBehaviour
 
         if (theBall != null)
         {
-            if (theClub.ongoingShoot)
+            if (theClub.ongoingShoot) // Forcing the camera to follow the ball if a shoot is ongoing (and during the rolling)
                 transform.position = theBall.transform.position + offset;
 
             transform.position = new Vector3

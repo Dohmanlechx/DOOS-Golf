@@ -9,6 +9,7 @@ public class GameSystem : MonoBehaviour
     public ParticleSystem particles;
     public Ball theBall;
 
+    // Public variables
     public static int shotNumber = 0;
 
     private void Start()
@@ -31,6 +32,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
+    // Activating particles to cheer the player, waiting 3 sec, then loads next scene
     IEnumerator Goal()
     {
         Debug.Log("Goal! Shots: " + shotNumber);

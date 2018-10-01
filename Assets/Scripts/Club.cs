@@ -20,12 +20,12 @@ public class Club : MonoBehaviour
     [SerializeField] public float maxDragDistance = 2f;
     public bool allowCameraMove = false;
     public float offset = 1f;
+    public bool ongoingShoot = false;
+    public bool isPressed = false;
 
     // Private variables
-    public bool isPressed = false;
     private bool alreadyExecuted = false;
     private bool shootIsReleased = false;
-    public bool ongoingShoot = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
     private Vector3 inputOffset;
@@ -36,7 +36,7 @@ public class Club : MonoBehaviour
         // Club's collider ignores Course's colliders
         Physics2D.IgnoreLayerCollision(8, 9);
 
-        theBall = FindObjectOfType<Ball>();
+        // Locking the hook into ball's position
         clubHook.gameObject.transform.position = theBall.transform.position;
     }
 
@@ -70,7 +70,7 @@ public class Club : MonoBehaviour
         }
     }
 
-    // Updating hook's position into ball's position, needed
+    // Updating hook into ball's position, needed
     // for shooting the ball again
     private void UpdateHookPosition()
     {
@@ -100,11 +100,11 @@ public class Club : MonoBehaviour
         // Positions of player's input
         inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // position = wished position to compare, this case: input
+        // Vector3 position = wished position to compare, this case: input
         Vector3 position = (Vector3)Vector2.Lerp(clubRb.position, inputPos,
                             Mathf.Clamp(Vector3.Distance(clubRb.position,
                             inputPos), 0, 0.5f)) + (theBall.transform.position - (Vector3)inputPos).normalized * offset;
-
+        // Max drag distance
         if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
             transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         else
@@ -124,7 +124,7 @@ public class Club : MonoBehaviour
 
     }
 
-    // Executes as soon as mouse click is released
+    // Executes as soon as mouse click is released, activating the component SpringJoint2D
     private void OnMouseUp()
     {
         theBall.rb.bodyType = RigidbodyType2D.Dynamic;
@@ -138,7 +138,7 @@ public class Club : MonoBehaviour
         StartCoroutine(Release());
     }
 
-    // This coroutine shoots the ball, using component "SpringJoint2D"
+    // This coroutine shoots the ball, deactivating the component SpringJoint2D
     IEnumerator Release()
     {
         yield return new WaitForSeconds(releaseTime);
@@ -148,6 +148,8 @@ public class Club : MonoBehaviour
         alreadyExecuted = false;
     }
 
+    // "Removing" the club gameobject, 
+    // executing when the club colliders with the ball (after released shoot)
     public void MakeClubInvisible(bool status)
     {
         if (status)
