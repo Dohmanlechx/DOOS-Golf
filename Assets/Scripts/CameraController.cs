@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject ball;
-    public Club club;
+    public GameObject theBall;
+    public Club theClub;
 
     private Vector3 touchStart;
     public Vector3 offset;
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        offset = transform.position - ball.transform.position;
+        offset = transform.position - theBall.transform.position;
     }
 
     private void Update()
@@ -31,10 +31,10 @@ public class CameraController : MonoBehaviour
             Camera.main.transform.position += direction;
         }
 
-        if (ball != null)
+        if (theBall != null)
         {
-            if (club.ongoingShoot)
-                transform.position = ball.transform.position + offset;
+            if (theClub.ongoingShoot)
+                transform.position = theBall.transform.position + offset;
 
             transform.position = new Vector3
                 (Mathf.Clamp(transform.position.x, MIN_X, MAX_X),

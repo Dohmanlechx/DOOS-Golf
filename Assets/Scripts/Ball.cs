@@ -6,20 +6,25 @@ public class Ball : MonoBehaviour
 {
     // Cached references
     public Rigidbody2D rb;
+    public Club theClub;
 
     [SerializeField] List<Transform> startPositions;
-    public int playersPositionChoice = 2;
+    public int playersPositionChoice;
 
     private void Start()
     {
+        playersPositionChoice = 2;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(PositionTheBall());
     }
 
     private IEnumerator PositionTheBall()
     {
-        gameObject.transform.position = startPositions[playersPositionChoice].transform.position;
-        yield return new WaitForSeconds(1f);
+        while (!theClub.isPressed)
+        {
+            transform.position = startPositions[playersPositionChoice].transform.position;
+            yield return new WaitForSeconds(0f);
+        }
     }
 
     public void DestroyBall()

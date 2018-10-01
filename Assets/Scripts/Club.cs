@@ -22,7 +22,7 @@ public class Club : MonoBehaviour
     public float offset = 1f;
 
     // Private variables
-    private bool isPressed = false;
+    public bool isPressed = false;
     private bool alreadyExecuted = false;
     private bool shootIsReleased = false;
     public bool ongoingShoot = false;
@@ -64,7 +64,7 @@ public class Club : MonoBehaviour
     {
         if (shootIsReleased)
         {
-            Debug.Log("Collider!");
+            //Debug.Log("Collider!");
             FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
         }

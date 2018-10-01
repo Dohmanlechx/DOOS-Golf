@@ -141,6 +141,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 50981890104475068}
+  theClub: {fileID: 0}
+  startPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playersPositionChoice: 2
 --- !u!212 &212749838903215964
 SpriteRenderer:
   m_ObjectHideFlags: 1
