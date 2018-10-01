@@ -37,6 +37,7 @@ public class GameSystem : MonoBehaviour
         theBall.DestroyBall();
         particles.Play();
         yield return new WaitForSeconds(3);
+        shotNumber = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
