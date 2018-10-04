@@ -133,10 +133,10 @@ MonoBehaviour:
   theBall: {fileID: 0}
   theClub: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  MIN_X: 0
-  MAX_X: 13
+  MIN_X: -1.5
+  MAX_X: 1.5
   MIN_Y: -0.4
-  MAX_Y: 5
+  MAX_Y: 10
 --- !u!212 &212131896352003452
 SpriteRenderer:
   m_ObjectHideFlags: 1
