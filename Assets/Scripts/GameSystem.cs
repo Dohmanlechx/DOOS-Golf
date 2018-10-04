@@ -9,11 +9,16 @@ public class GameSystem : MonoBehaviour
     public ParticleSystem particles;
     public Ball theBall;
 
+    // Private variables
+    private AudioSource audioSource;
+    [SerializeField] List<AudioClip> sounds;
+
     // Public variables
     public static int shotNumber = 0;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         particles = FindObjectOfType<ParticleSystem>();
         theBall = FindObjectOfType<Ball>();
     }
@@ -36,6 +41,7 @@ public class GameSystem : MonoBehaviour
     IEnumerator Goal()
     {
         Debug.Log("Goal! Shots: " + shotNumber);
+        audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
         yield return new WaitForSeconds(3);
