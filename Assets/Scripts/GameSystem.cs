@@ -44,7 +44,7 @@ public class GameSystem : MonoBehaviour
         audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         shotNumber = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
