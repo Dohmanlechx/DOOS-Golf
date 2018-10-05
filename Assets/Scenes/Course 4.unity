@@ -267,6 +267,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114349257706631670, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4841351812462140, guid: 9ecde7b6358931846a8cff8c08f6d3fc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.7266254
@@ -314,6 +319,11 @@ Prefab:
       propertyPath: theBall
       value: 
       objectReference: {fileID: 1958718205}
+    - target: {fileID: 114349257706631670, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ea7cd8b8b183f842a40a3a356e05f9e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ecde7b6358931846a8cff8c08f6d3fc, type: 2}
   m_IsPrefabAsset: 0
@@ -546,6 +556,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4976215858953524, guid: 675c9a5c75a2eb74cabedaa3bbb190eb, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -588,6 +603,11 @@ Prefab:
       propertyPath: theBall
       value: 
       objectReference: {fileID: 1958718205}
+    - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ea7cd8b8b183f842a40a3a356e05f9e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675c9a5c75a2eb74cabedaa3bbb190eb, type: 2}
   m_IsPrefabAsset: 0
