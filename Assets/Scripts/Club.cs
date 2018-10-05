@@ -19,7 +19,6 @@ public class Club : MonoBehaviour
     [SerializeField] public float releaseTime = 0.5f;
     [SerializeField] public float maxDragDistance = 2f;
     public bool allowCameraMove = false;
-    public float offset = 1f;
     public bool ongoingShoot = false;
     public bool isPressed = false;
 
@@ -29,6 +28,7 @@ public class Club : MonoBehaviour
     private Vector3 ballPos;
     private Vector2 inputPos;
     private Vector3 inputOffset;
+    private float offset = 0.4f; // Use 0f for PC/Mac build
 
     // Start
     private void Start()
@@ -64,7 +64,6 @@ public class Club : MonoBehaviour
     {
         if (shootIsReleased)
         {
-            //Debug.Log("Collider!");
             FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
         }
@@ -102,8 +101,9 @@ public class Club : MonoBehaviour
 
         // Vector3 position = wished position to compare, this case: input
         Vector3 position = (Vector3)Vector2.Lerp(clubRb.position, inputPos,
-                            Mathf.Clamp(Vector3.Distance(clubRb.position,
-                            inputPos), 0, 0.5f)) + (theBall.transform.position - (Vector3)inputPos).normalized * offset;
+                            Mathf.Clamp(Vector3.Distance(clubRb.position, inputPos), 0f, 0.5f)) + 
+                            (theBall.transform.position - (Vector3)inputPos).normalized * offset;
+
         // Max drag distance
         if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
             transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
