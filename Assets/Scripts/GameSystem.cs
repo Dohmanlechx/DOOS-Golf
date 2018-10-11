@@ -18,6 +18,8 @@ public class GameSystem : MonoBehaviour
     private static int shotCount;
     private bool goalAt7thSwing;
 
+    public int GetShotCount() { return shotCount; }
+
     private void Start()
         {
         shotCount = 0;
@@ -62,7 +64,7 @@ public class GameSystem : MonoBehaviour
             shotCount = 8;
             }
         Debug.Log("Final result:" + shotCount);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadNextScene(shotCount);
         }
 
     // Activating particles to cheer the player, waiting 3 sec, then loads next scene
@@ -74,7 +76,12 @@ public class GameSystem : MonoBehaviour
         theBall.DestroyBall();
         particles.Play();
         yield return new WaitForSeconds(3f);
-        shotCount = 0;
+        LoadNextScene(shotCount);
+        }
+
+    public void LoadNextScene(int finalShotCount)
+        {
+        shotCount = finalShotCount;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
