@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032812add8daf534484d3865b822f45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theBall: {fileID: 114574717465160378, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
-  theClub: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9, type: 2}
+  theBall: {fileID: 0}
+  theClub: {fileID: 0}
   m_btnLeft: {fileID: 114317740239625032}
   m_btnRight: {fileID: 114925772611514942}
 --- !u!114 &114925772611514942

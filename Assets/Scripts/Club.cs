@@ -18,7 +18,7 @@ public class Club : MonoBehaviour
     [SerializeField] public float speed = 5f;
     [SerializeField] public float releaseTime = 0.5f;
     [SerializeField] public float maxDragDistance = 2f;
-    public bool allowCameraMove = false;
+    public bool allowCameraMove = true;
     public bool ongoingShoot = false;
     public bool isPressed = false;
 
@@ -38,11 +38,6 @@ public class Club : MonoBehaviour
 
         // Locking the hook into ball's position
         PositionClubHook();
-    }
-
-    public void PositionClubHook()
-    {
-        clubHook.gameObject.transform.position = theBall.transform.position;
     }
 
     // Update
@@ -71,8 +66,12 @@ public class Club : MonoBehaviour
         {
             FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
-            Destroy(clubHookRb.gameObject);
         }
+    }
+
+    public void PositionClubHook()
+    {
+        clubHook.gameObject.transform.position = theBall.transform.position;
     }
 
     // Updating hook into ball's position, needed
@@ -83,7 +82,7 @@ public class Club : MonoBehaviour
 
         Debug.Log("UpdateHookPosition() running");
         ballPos = theBall.transform.position;
-        clubHook.gameObject.transform.position = ballPos;
+        PositionClubHook();
         ballPos += new Vector3(0f, -0.5f, 0f);
         transform.position = ballPos;
         alreadyExecuted = true;
@@ -93,7 +92,7 @@ public class Club : MonoBehaviour
     private void PreparingShoot()
     {
         // Attching hook onto the ball 
-        clubHook.gameObject.transform.position = theBall.transform.position;
+        PositionClubHook();
 
         // Facing the club to ball
         Vector3 direction = theBall.transform.position - transform.position;
@@ -149,7 +148,7 @@ public class Club : MonoBehaviour
     {
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         alreadyExecuted = false;
     }
