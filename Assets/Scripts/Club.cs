@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Club : MonoBehaviour
-{
+    {
     //public Transform ballTarget;
 
     // Cached references
@@ -32,52 +32,52 @@ public class Club : MonoBehaviour
 
     // Start
     private void Start()
-    {
+        {
         // Club's collider ignores Course's colliders
         Physics2D.IgnoreLayerCollision(8, 9);
 
         // Locking the hook into ball's position
         PositionClubHook();
-    }
+        }
 
     // Update
     private void Update()
-    {
-        if (isPressed)
         {
+        if (isPressed)
+            {
             PreparingShoot();
-        }
+            }
 
         if (theBall != null)
-        {
+            {
             if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
-            {
+                {
                 ongoingShoot = false;
                 MakeClubInvisible(false);
                 UpdateHookPosition();
+                }
             }
         }
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (shootIsReleased)
         {
+        if (shootIsReleased)
+            {
             FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
+            }
         }
-    }
 
     public void PositionClubHook()
-    {
+        {
         clubHook.gameObject.transform.position = theBall.transform.position;
-    }
+        }
 
     // Updating hook into ball's position, needed
     // for shooting the ball again
     public void UpdateHookPosition()
-    {
+        {
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         Debug.Log("UpdateHookPosition() running");
@@ -86,11 +86,11 @@ public class Club : MonoBehaviour
         ballPos += new Vector3(0f, -0.5f, 0f);
         transform.position = ballPos;
         alreadyExecuted = true;
-    }
+        }
 
     // Updating the position, rotation etc for the club in realtime while preparing the shoot
     private void PreparingShoot()
-    {
+        {
         // Attching hook onto the ball 
         PositionClubHook();
 
@@ -114,11 +114,11 @@ public class Club : MonoBehaviour
             transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         else
             transform.position = position;
-    }
+        }
 
     // Executes as soon as mouse click is down
     private void OnMouseDown()
-    {
+        {
         theBall.rb.bodyType = RigidbodyType2D.Static;
 
         isPressed = true;
@@ -126,12 +126,11 @@ public class Club : MonoBehaviour
         allowCameraMove = false;
         shootIsReleased = false;
         clubRb.isKinematic = true;
-
-    }
+        }
 
     // Executes as soon as mouse click is released, activating the component SpringJoint2D
     private void OnMouseUp()
-    {
+        {
         theBall.rb.bodyType = RigidbodyType2D.Dynamic;
         GetComponent<SpringJoint2D>().enabled = true;
 
@@ -141,25 +140,25 @@ public class Club : MonoBehaviour
         clubRb.isKinematic = false;
 
         StartCoroutine(Release());
-    }
+        }
 
     // This coroutine shoots the ball, deactivating the component SpringJoint2D
     IEnumerator Release()
-    {
+        {
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
         yield return new WaitForSeconds(2f);
 
         alreadyExecuted = false;
-    }
+        }
 
     // "Removing" the club gameobject, 
     // executing when the club colliders with the ball (after released shoot)
     public void MakeClubInvisible(bool status)
-    {
+        {
         if (status)
             GameObject.Find("Club").transform.localScale = new Vector3(0, 0, 0);
         else if (!status)
             GameObject.Find("Club").transform.localScale = new Vector3(6, 1, 1);
+        }
     }
-}
