@@ -31,7 +31,7 @@ public class GameSystem : MonoBehaviour
     // Goal trigger, but if the ball is moving too fast, it won't trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (theBall.rb.velocity.magnitude < 3.5f)
+        if (theBall.rb.velocity.magnitude < 3.0f)
         {
             StartCoroutine(Goal());
         }

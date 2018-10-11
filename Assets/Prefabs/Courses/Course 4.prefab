@@ -3531,7 +3531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 0}
   theBall: {fileID: 0}
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: 2ea7cd8b8b183f842a40a3a356e05f9e, type: 3}
 --- !u!198 &198871355433013086
 ParticleSystem:
   m_ObjectHideFlags: 1

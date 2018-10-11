@@ -37,6 +37,11 @@ public class Club : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9);
 
         // Locking the hook into ball's position
+        PositionClubHook();
+    }
+
+    public void PositionClubHook()
+    {
         clubHook.gameObject.transform.position = theBall.transform.position;
     }
 
@@ -66,12 +71,13 @@ public class Club : MonoBehaviour
         {
             FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
+            Destroy(clubHookRb.gameObject);
         }
     }
 
     // Updating hook into ball's position, needed
     // for shooting the ball again
-    private void UpdateHookPosition()
+    public void UpdateHookPosition()
     {
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
@@ -101,7 +107,7 @@ public class Club : MonoBehaviour
 
         // Vector3 position = wished position to compare, this case: input
         Vector3 position = (Vector3)Vector2.Lerp(clubRb.position, inputPos,
-                            Mathf.Clamp(Vector3.Distance(clubRb.position, inputPos), 0f, 0.5f)) + 
+                            Mathf.Clamp(Vector3.Distance(clubRb.position, inputPos), 0f, 0.5f)) +
                             (theBall.transform.position - (Vector3)inputPos).normalized * offset;
 
         // Max drag distance
@@ -143,7 +149,7 @@ public class Club : MonoBehaviour
     {
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         alreadyExecuted = false;
     }
