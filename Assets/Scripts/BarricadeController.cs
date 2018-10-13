@@ -31,11 +31,17 @@ public class BarricadeController : MonoBehaviour
     }
 
     // After 5 colliderhits with those barricades, the course resets
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
+        if (SceneManager.GetActiveScene().name == "Course 3")
+        {
+            Debug.Log("Hejdsfdsf");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         collisionHits++;
         Debug.Log("collisionHits: " + collisionHits);
-
+        
         if (collisionHits >= 5 && gameSystem.GetShotCount() < 7)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
