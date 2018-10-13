@@ -30,32 +30,41 @@ public class BarricadeController : MonoBehaviour
         }
     }
 
-    // After 5 colliderhits with those barricades, the course resets
     private void OnCollisionEnter2D(Collision2D other)
     {
+        collisionHits++;
+
+        // Exclusive for Course 3
+        // If the ball rolls back and hits on the rear of course, this executes
         if (SceneManager.GetActiveScene().name == "Course 3")
         {
-            Debug.Log("Hejdsfdsf");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartCurrentScene();
         }
 
-        collisionHits++;
-        Debug.Log("collisionHits: " + collisionHits);
-        
-        if (collisionHits >= 5 && gameSystem.GetShotCount() < 7)
+        // Exclusive for Course 4
+        // After 5 colliderhits with those barricades, the course resets
+        if (SceneManager.GetActiveScene().name == "Course 4" &&
+            collisionHits >= 5 && gameSystem.GetShotCount() < 7)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartCurrentScene();
         }
-        else if (collisionHits >= 5 && gameSystem.GetShotCount() >= 7)
+        // If player after his 7th swing still misses, game loads next course and sets 8 as total swings
+        else if (SceneManager.GetActiveScene().name == "Course 4" &&
+            collisionHits >= 5 && gameSystem.GetShotCount() >= 7)
         {
             StartCoroutine(WaitThenLoadNextScene());
         }
+    }
+
+    private static void RestartCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Having this method just because I want it to wait a bit
     IEnumerator WaitThenLoadNextScene()
     {
         yield return new WaitForSeconds(2f);
-        gameSystem.LoadNextScene(3);
+        gameSystem.LoadNextScene(8);
     }
 }
