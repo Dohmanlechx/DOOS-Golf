@@ -551,6 +551,11 @@ Prefab:
       propertyPath: theClub
       value: 
       objectReference: {fileID: 106965810}
+    - target: {fileID: 20817676318917208, guid: deac7fbcfca8a8c43a2ca36b6423a0d1,
+        type: 2}
+      propertyPath: orthographic size
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deac7fbcfca8a8c43a2ca36b6423a0d1, type: 2}
   m_IsPrefabAsset: 0

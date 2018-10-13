@@ -5596,7 +5596,7 @@ GameObject:
   - component: {fileID: 842635718}
   - component: {fileID: 842635716}
   m_Layer: 0
-  m_Name: SCoreboard
+  m_Name: Scoreboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
