@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Challenge 1.unity
     guid: a010cb16aa2d7fd4986cd4ae0427249c
+  - enabled: 1
+    path: Assets/Scenes/Scoreboard.unity
+    guid: d2811f02461d2d8408a2d85e47e64ce7
   m_configObjects: {}

@@ -7,6 +7,7 @@ using TMPro;
 public class GameSystem : MonoBehaviour
 {
     // Cached references
+    public ScoreBoard scoreboard;
     public ParticleSystem particles;
     public Ball theBall;
     public Club theClub;
@@ -24,6 +25,7 @@ public class GameSystem : MonoBehaviour
     {
         shotCount = 0;
         goalAt7thSwing = false;
+        scoreboard = FindObjectOfType<ScoreBoard>();
         audioSource = GetComponent<AudioSource>();
         particles = FindObjectOfType<ParticleSystem>();
         theBall = FindObjectOfType<Ball>();
