@@ -29,6 +29,14 @@ public class ScoreBoard : MonoBehaviour
         //amountPlayers = playerHandler.getPlayerAmount();
     }
 
+    public void SetScore(int course, int score)
+    {
+        TextMeshPro test = player1Holes[course];
+
+        test.SetText(score.ToString());
+
+    }
+
 
     private void OnMouseUp()
     {

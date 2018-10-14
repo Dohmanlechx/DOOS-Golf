@@ -31,9 +31,11 @@ public class ButtonScript : MonoBehaviour
 
     private void Update()
     {
+        /*
         // If club is pressed, destroy the buttons
         if (theClub.isPressed)
             Destroy(gameObject);
+            */
     }
 
     private void MoveBallToLeft()

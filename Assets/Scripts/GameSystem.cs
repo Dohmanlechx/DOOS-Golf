@@ -18,11 +18,13 @@ public class GameSystem : MonoBehaviour
     [SerializeField] List<AudioClip> sounds;
     private static int shotCount;
     private bool goalAt7thSwing;
+    private int courseIndex;
 
     public int GetShotCount() { return shotCount; }
 
     private void Start()
     {
+        courseIndex = SceneManager.GetActiveScene().buildIndex;
         shotCount = 0;
         goalAt7thSwing = false;
         scoreboard = FindObjectOfType<ScoreBoard>();
@@ -77,6 +79,8 @@ public class GameSystem : MonoBehaviour
         audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
+        scoreboard.SetScore(courseIndex, shotCount);
+        Debug.Log("method runned");
         yield return new WaitForSeconds(3f);
         LoadNextScene(shotCount);
     }
