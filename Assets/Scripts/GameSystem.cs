@@ -33,7 +33,6 @@ public class GameSystem : MonoBehaviour
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
         shotCountText = FindObjectOfType<TextMeshProUGUI>();
-        scores.TestLog();
         courseIndex = SceneManager.GetActiveScene().buildIndex;
         shotCount = 0;
         goalAt7thSwing = false;
@@ -85,7 +84,6 @@ public class GameSystem : MonoBehaviour
         audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
-        Debug.Log("method runned");
         yield return new WaitForSeconds(3f);
         LoadNextScene(shotCount);
     }

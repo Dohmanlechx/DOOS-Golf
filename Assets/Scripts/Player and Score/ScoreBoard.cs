@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
+    public Scores scores;
+
     //private static bool created = false;
     private static int lastCourseIndex;
 
@@ -17,10 +19,12 @@ public class ScoreBoard : MonoBehaviour
         Debug.Log("Awake:" + gameObject);
     } */
 
-    public List<TextMeshPro> player1Holes = new List<TextMeshPro>();
+    public List<TextMeshPro> player1TextMeshs = new List<TextMeshPro>();
+    /*
     public List<TextMeshPro> player2Holes = new List<TextMeshPro>();
     public List<TextMeshPro> player3Holes = new List<TextMeshPro>();
     public List<TextMeshPro> player4Holes = new List<TextMeshPro>();
+    */
     //public PlayerHandler playerHandler;
     //private int amountPlayers;
 
@@ -28,6 +32,8 @@ public class ScoreBoard : MonoBehaviour
 
     private void Start()
     {
+        scores = FindObjectOfType<Scores>();
+        UpdateScoreBoard();
         //amountPlayers = playerHandler.getPlayerAmount();
     }
 
@@ -41,7 +47,19 @@ public class ScoreBoard : MonoBehaviour
     }
     */
 
-    public void SetLastCourseIndex(int index)
+    private void UpdateScoreBoard()
+    {
+        if (scores != null)
+        {
+            for (int i = 0; i <= player1TextMeshs.Count; i++)
+            {
+                int[] myScores = scores.GetScores();
+                player1TextMeshs[i].SetText(myScores[i].ToString());
+            }
+        }
+    }
+
+    public static void SetLastCourseIndex(int index)
     {
         lastCourseIndex = index;
     }

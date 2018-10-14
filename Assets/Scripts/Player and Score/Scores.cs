@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class Scores : MonoBehaviour
 {
-    private int[] player1Scores = new int[18];
+    private int[] player1Scores = new int[19];
     private static bool created = false;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        created = true;
-        Debug.Log("Awake:" + gameObject);
+        if (!created)
+        {
+            DontDestroyOnLoad(gameObject);
+            created = true;
+        }
     }
 
     private void Start()
     {
-    }
 
-    public void TestLog()
-    {
-        Debug.Log("test: " + player1Scores[1]);
     }
 
     public int[] GetScores()

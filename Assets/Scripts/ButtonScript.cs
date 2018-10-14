@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour
     public Ball theBall;
     public Club theClub;
     public GameSystem gameSystem;
-    public ScoreBoard scoreBoard;
+    //public ScoreBoard scoreBoard;
 
     // Public variables
     public Button m_btnLeft, m_btnRight, m_btnScoreboard;
@@ -18,7 +18,7 @@ public class ButtonScript : MonoBehaviour
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
-        scoreBoard = FindObjectOfType<ScoreBoard>();
+        //scoreBoard = FindObjectOfType<ScoreBoard>();
 
         // Attaching the buttons
         Button btnLeft = m_btnLeft.GetComponent<Button>();
@@ -57,7 +57,8 @@ public class ButtonScript : MonoBehaviour
 
     private void LoadScoreboardScene()
     {
-        scoreBoard.SetLastCourseIndex(gameSystem.GetCourseIndex());
+        //scoreBoard.SetLastCourseIndex(gameSystem.GetCourseIndex());
+        ScoreBoard.SetLastCourseIndex(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("Scoreboard");
     }
 }
