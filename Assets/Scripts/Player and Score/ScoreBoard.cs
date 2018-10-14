@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
-    private static bool created = false;
+    //private static bool created = false;
+    private static int lastCourseIndex;
 
+    /*
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         created = true;
         Debug.Log("Awake:" + gameObject);
-    }
+    } */
 
     public List<TextMeshPro> player1Holes = new List<TextMeshPro>();
     public List<TextMeshPro> player2Holes = new List<TextMeshPro>();
@@ -29,6 +31,7 @@ public class ScoreBoard : MonoBehaviour
         //amountPlayers = playerHandler.getPlayerAmount();
     }
 
+    /*
     public void SetScore(int course, int score)
     {
         TextMeshPro test = player1Holes[course];
@@ -36,13 +39,18 @@ public class ScoreBoard : MonoBehaviour
         test.SetText(score.ToString());
 
     }
+    */
 
+    public void SetLastCourseIndex(int index)
+    {
+        lastCourseIndex = index;
+    }
 
     private void OnMouseUp()
     {
         if (isContinue)
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene(lastCourseIndex);
         }
     }
 

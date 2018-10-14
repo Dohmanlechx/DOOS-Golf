@@ -8,6 +8,7 @@ public class GameSystem : MonoBehaviour
 {
     // Cached references
     public ScoreBoard scoreboard;
+    public Scores scores;
     public ParticleSystem particles;
     public Ball theBall;
     public Club theClub;
@@ -21,18 +22,22 @@ public class GameSystem : MonoBehaviour
     private int courseIndex;
 
     public int GetShotCount() { return shotCount; }
+    public int GetCourseIndex() { return courseIndex; }
 
     private void Start()
     {
-        courseIndex = SceneManager.GetActiveScene().buildIndex;
-        shotCount = 0;
-        goalAt7thSwing = false;
         scoreboard = FindObjectOfType<ScoreBoard>();
+        scores = FindObjectOfType<Scores>();
         audioSource = GetComponent<AudioSource>();
         particles = FindObjectOfType<ParticleSystem>();
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
         shotCountText = FindObjectOfType<TextMeshProUGUI>();
+        scores.TestLog();
+        courseIndex = SceneManager.GetActiveScene().buildIndex;
+        shotCount = 0;
+        goalAt7thSwing = false;
+
     }
 
     public void AddShot()
@@ -50,6 +55,7 @@ public class GameSystem : MonoBehaviour
     {
         if (theBall.rb.velocity.magnitude < 4.0f)
         {
+            scores.SetScore(courseIndex, shotCount);
             StartCoroutine(Goal());
         }
     }
@@ -79,7 +85,6 @@ public class GameSystem : MonoBehaviour
         audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
-        scoreboard.SetScore(courseIndex, shotCount);
         Debug.Log("method runned");
         yield return new WaitForSeconds(3f);
         LoadNextScene(shotCount);
