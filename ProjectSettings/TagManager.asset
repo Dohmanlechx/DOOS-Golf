@@ -12,6 +12,7 @@ TagManager:
   - Forcebouncer
   - WinZone
   - PlusZone
+  - Restart
   layers:
   - Default
   - TransparentFX

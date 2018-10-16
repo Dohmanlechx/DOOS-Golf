@@ -8,6 +8,9 @@ public class BarricadeController : MonoBehaviour
 
     // Cached references
     public GameSystem gameSystem;
+    public SteepController steepController;
+
+    //public Scores scores;
     public Ball theBall;
     public Club theClub;
 
@@ -17,6 +20,8 @@ public class BarricadeController : MonoBehaviour
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
+        steepController = FindObjectOfType<SteepController>();
+
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
     }
@@ -34,11 +39,11 @@ public class BarricadeController : MonoBehaviour
     {
         collisionHits++;
 
-        // Exclusive for Course 3
         // If the ball rolls back and hits on the rear of course, this executes
-        if (SceneManager.GetActiveScene().name == "Course 3")
+        if (gameObject.CompareTag("Restart"))
         {
-            RestartCurrentScene();
+            steepController.RestoreDefaultGravity();
+            ResetBallPosition();
         }
 
         // Exclusive for Course 4
@@ -46,7 +51,8 @@ public class BarricadeController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Course 4" &&
             collisionHits >= 5 && gameSystem.GetShotCount() < 7)
         {
-            RestartCurrentScene();
+            steepController.RestoreDefaultGravity();
+            ResetBallPosition();
         }
         // If player after his 7th swing still misses, game loads next course and sets 8 as total swings
         else if (SceneManager.GetActiveScene().name == "Course 4" &&
@@ -56,15 +62,16 @@ public class BarricadeController : MonoBehaviour
         }
     }
 
-    private static void RestartCurrentScene()
+    private void ResetBallPosition()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        theBall.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        theBall.gameObject.transform.position = new Vector2(0, -3);
     }
 
     // Having this method just because I want it to wait a bit
     IEnumerator WaitThenLoadNextScene()
     {
         yield return new WaitForSeconds(2f);
-        gameSystem.LoadNextScene(8);
+        gameSystem.LoadNextScene(8); // 8 swings
     }
 }

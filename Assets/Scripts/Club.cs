@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Club : MonoBehaviour
 {
-    //public Transform ballTarget;
-
     // Cached references
     public Ball theBall;
     public Rigidbody2D clubRb;
@@ -27,7 +25,7 @@ public class Club : MonoBehaviour
     private bool shootIsReleased = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
-    private Vector3 inputOffset;
+    private Vector2 inputOffset;
     private float offset = 0.4f; // Use 0f for PC/Mac build
 
     // Start
@@ -50,6 +48,7 @@ public class Club : MonoBehaviour
 
         if (theBall != null)
         {
+            // When ball is still, this executes. Why 0.02: if 0, player would wait too long to the ball to stop rolling
             if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
             {
@@ -60,6 +59,7 @@ public class Club : MonoBehaviour
         }
     }
 
+    // When club colliders with ball
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (shootIsReleased)
@@ -111,7 +111,7 @@ public class Club : MonoBehaviour
 
         // Max drag distance
         if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
-            transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
+            transform.position = clubHookRb.position + ((inputPos + inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         else
             transform.position = position;
     }
@@ -147,8 +147,7 @@ public class Club : MonoBehaviour
     {
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
-        yield return new WaitForSeconds(2f);
-
+        clubRb.velocity = Vector2.zero;
         alreadyExecuted = false;
     }
 

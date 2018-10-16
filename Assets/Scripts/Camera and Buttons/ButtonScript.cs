@@ -2,27 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
     // Cached references
     public Ball theBall;
     public Club theClub;
+    public GameSystem gameSystem;
+    //public ScoreBoard scoreBoard;
 
     // Public variables
-    public Button m_btnLeft, m_btnRight;
+    public Button m_btnLeft, m_btnRight, m_btnScoreboard;
 
     private void Start()
     {
+        gameSystem = FindObjectOfType<GameSystem>();
+        //scoreBoard = FindObjectOfType<ScoreBoard>();
+
         // Attaching the buttons
         Button btnLeft = m_btnLeft.GetComponent<Button>();
         Button btnRight = m_btnRight.GetComponent<Button>();
+        Button btnScoreboard = m_btnScoreboard.GetComponent<Button>();
         // Removing the in-built listeners
         btnLeft.onClick.RemoveAllListeners();
         btnRight.onClick.RemoveAllListeners();
+        btnScoreboard.onClick.RemoveAllListeners();
         // Adding own listeners
         btnLeft.onClick.AddListener(MoveBallToLeft);
         btnRight.onClick.AddListener(MoveBallToRight);
+        btnScoreboard.onClick.AddListener(LoadScoreboardScene);
     }
 
     private void Update()
@@ -44,4 +53,9 @@ public class ButtonScript : MonoBehaviour
             theBall.playersPositionChoice = theBall.playersPositionChoice + 1;
     }
 
+    private void LoadScoreboardScene()
+    {
+        ScoreBoard.SetLastCourseIndex(SceneManager.GetActiveScene().buildIndex); // Back to last course
+        SceneManager.LoadScene("Scoreboard");
+    }
 }
