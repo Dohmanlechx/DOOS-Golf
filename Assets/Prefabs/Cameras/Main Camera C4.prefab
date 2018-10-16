@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3132b2bd2f19d3b4086d96609c3a9c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theBall: {fileID: 1502899597555058, guid: 10c23909cab68c9468c31777164e9b3a, type: 2}
-  theClub: {fileID: 114327391008355158, guid: 7df44ad6e426e34478675469bc2f09d9, type: 2}
+  theBall: {fileID: 0}
+  theClub: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   MIN_X: -1.5
   MAX_X: 1.5
