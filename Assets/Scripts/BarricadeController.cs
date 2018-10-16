@@ -21,7 +21,7 @@ public class BarricadeController : MonoBehaviour
     {
         gameSystem = FindObjectOfType<GameSystem>();
         steepController = FindObjectOfType<SteepController>();
-        //scores = FindObjectOfType<Scores>();
+
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
     }
@@ -44,7 +44,6 @@ public class BarricadeController : MonoBehaviour
         {
             steepController.RestoreDefaultGravity();
             ResetBallPosition();
-            collisionHits = 0;
         }
 
         // Exclusive for Course 4
@@ -69,15 +68,10 @@ public class BarricadeController : MonoBehaviour
         theBall.gameObject.transform.position = new Vector2(0, -3);
     }
 
-    private static void RestartCurrentScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     // Having this method just because I want it to wait a bit
     IEnumerator WaitThenLoadNextScene()
     {
         yield return new WaitForSeconds(2f);
-        gameSystem.LoadNextScene(8);
+        gameSystem.LoadNextScene(8); // 8 swings
     }
 }

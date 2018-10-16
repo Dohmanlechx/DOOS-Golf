@@ -6,30 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
+    // Cached references
     public GameSystem gameSystem;
     public Scores scores;
 
-    //private static bool created = false;
+    // Public variables
+    public List<TextMeshPro> player1TextMeshs = new List<TextMeshPro>();
+    public bool isContinue;
+
+    // Private variables
     private static int lastCourseIndex;
 
-    /*
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        created = true;
-        Debug.Log("Awake:" + gameObject);
-    } */
-
-    public List<TextMeshPro> player1TextMeshs = new List<TextMeshPro>();
     /*
     public List<TextMeshPro> player2Holes = new List<TextMeshPro>();
     public List<TextMeshPro> player3Holes = new List<TextMeshPro>();
     public List<TextMeshPro> player4Holes = new List<TextMeshPro>();
+    
+    public PlayerHandler playerHandler;
+    private int amountPlayers;
     */
-    //public PlayerHandler playerHandler;
-    //private int amountPlayers;
-
-    public bool isContinue;
 
     private void Start()
     {
@@ -39,16 +34,6 @@ public class ScoreBoard : MonoBehaviour
         //amountPlayers = playerHandler.getPlayerAmount();
     }
 
-    /*
-    public void SetScore(int course, int score)
-    {
-        TextMeshPro test = player1Holes[course];
-
-        test.SetText(score.ToString());
-
-    }
-    */
-
     private void UpdateScoreBoard()
     {
         if (scores != null)
@@ -56,22 +41,21 @@ public class ScoreBoard : MonoBehaviour
             for (int i = 1; i <= player1TextMeshs.Count - 1; i++)
             {
                 int[] myScores = scores.GetScores();
-                Debug.Log(myScores[i]);
-                Debug.Log(myScores[i] == 0);
                 if (myScores[i] == 0)
                 {
-                    player1TextMeshs[i].SetText("");
+                    player1TextMeshs[i].SetText(""); // Unplayed courses
                 }
                 else
                 {
-                    player1TextMeshs[i].SetText(myScores[i].ToString());
+                    player1TextMeshs[i].SetText(myScores[i].ToString()); // Played courses
                 }
             }
 
-            player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString());
+            player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString()); // Updating total shots in scoreboard
         }
     }
 
+    // Access from ButtonScript.cs, needed to recall the course's index
     public static void SetLastCourseIndex(int index)
     {
         lastCourseIndex = index;
@@ -84,6 +68,4 @@ public class ScoreBoard : MonoBehaviour
             SceneManager.LoadScene(lastCourseIndex);
         }
     }
-
-
 }

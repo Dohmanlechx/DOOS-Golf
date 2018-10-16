@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Club : MonoBehaviour
 {
-    //public Transform ballTarget;
-
     // Cached references
     public Ball theBall;
     public Rigidbody2D clubRb;
@@ -50,6 +48,7 @@ public class Club : MonoBehaviour
 
         if (theBall != null)
         {
+            // When ball is still, this executes. Why 0.02: if 0, player would wait too long to the ball to stop rolling
             if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
             {
@@ -60,6 +59,7 @@ public class Club : MonoBehaviour
         }
     }
 
+    // When club colliders with ball
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (shootIsReleased)
@@ -148,8 +148,6 @@ public class Club : MonoBehaviour
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
         clubRb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(1f);
-
         alreadyExecuted = false;
     }
 

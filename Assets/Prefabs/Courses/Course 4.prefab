@@ -3605,6 +3605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114046649420341390
@@ -3634,6 +3635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114349257706631670
@@ -3666,6 +3668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114607958232717440
@@ -3680,6 +3683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114705212940246650
@@ -3694,6 +3698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114892341375618724
@@ -3708,6 +3713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!198 &198871355433013086

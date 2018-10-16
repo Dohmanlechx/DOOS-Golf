@@ -5,18 +5,18 @@ using TMPro;
 
 public class Scores : MonoBehaviour
 {
+    // THIS SCRIPT NEVER DESTROYS IN GAME
+    // THIS SCRIPT IS STORING PLAYER'S SCORES AND ALSO COUNTING TOTAL SHOTS OF THEM
+
     // Cached references
     public GameSystem gameSystem;
-
-    // Public variables
 
     // Private variables
     private static Scores _instance;
     private int[] player1Scores;
-    //private static int shotCount;
     private int totalShotsCount = 0;
-    //private static bool created = false;
 
+    // Singleton
     public static Scores Instance
     {
         get
@@ -30,7 +30,6 @@ public class Scores : MonoBehaviour
         }
     }
 
-    // bullshit code
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -46,55 +45,26 @@ public class Scores : MonoBehaviour
 
     private void Start()
     {
+        // The first 1 contains name, 2-19 are for holes and 20 is for total
         player1Scores = new int[20];
     }
 
     private void Update()
     {
+        // To make sure to always have connection with GameSystem
         if (GameObject.Find("Game System") != null)
         {
             gameSystem = FindObjectOfType<GameSystem>();
         }
     }
 
-    /*
-    public int GetShotCount() { return shotCount; }
-
-    public void AddShotToCount(int shot)
-    {
-        shotCount++;
-    }
-
-    public int GetTotalShotsCount() { return totalShotsCount; }
-
-    public void AddShotToTotal(int shot)
-    {
-        totalShotsCount++;
-    }
-
-    public void AddShot()
-    {
-        shotCount++;
-        totalShotsCount++;
-        Debug.Log("shotCount: " + shotCount);
-        gameSystem.shotCountText.SetText(shotCount.ToString());
-
-        if (shotCount >= 7)
-        {
-            StartCoroutine(gameSystem.TooManyShots(shotCount));
-        }
-    }
-
-    public void ResetShots()
-    {
-        shotCount = 0;
-    }
-       */
+    // Needing this code to let GameSystem make instance of this gameobject
     public void NeverMind()
     {
         Debug.Log("Never mind");
     }
 
+    // Getters
     public int[] GetScores()
     {
         return player1Scores;
@@ -110,8 +80,9 @@ public class Scores : MonoBehaviour
         return totalShotsCount;
     }
 
-    public void SetScore(int course, int shotCount)
+    // Setter and storing in array
+    public void SetScore(int courseIndex, int shotCount)
     {
-        player1Scores[course] = shotCount;
+        player1Scores[courseIndex] = shotCount;
     }
 }

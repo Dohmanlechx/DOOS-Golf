@@ -1915,6 +1915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
+  steepController: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
 --- !u!114 &114685312751046078
