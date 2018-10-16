@@ -51,7 +51,7 @@ public class ScoreBoard : MonoBehaviour
     {
         if (scores != null)
         {
-            for (int i = 0; i <= player1TextMeshs.Count; i++)
+            for (int i = 0; i <= player1TextMeshs.Count -1; i++)
             {
                 int[] myScores = scores.GetScores();
                 player1TextMeshs[i].SetText(myScores[i].ToString());

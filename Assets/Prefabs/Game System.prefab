@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf81c3e778b48d4b90f8347e34ef705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scores: {fileID: 0}
   particles: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}

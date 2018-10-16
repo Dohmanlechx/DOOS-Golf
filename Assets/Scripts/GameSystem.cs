@@ -7,7 +7,6 @@ using TMPro;
 public class GameSystem : MonoBehaviour
 {
     // Cached references
-    public ScoreBoard scoreboard;
     public Scores scores;
     public ParticleSystem particles;
     public Ball theBall;
@@ -17,16 +16,15 @@ public class GameSystem : MonoBehaviour
     // Private variables
     private AudioSource audioSource;
     [SerializeField] List<AudioClip> sounds;
-    private static int shotCount;
+    //private static int shotCount;
     private bool goalAt7thSwing;
     private int courseIndex;
 
-    public int GetShotCount() { return shotCount; }
+    //public int GetShotCount() { return shotCount; }
     public int GetCourseIndex() { return courseIndex; }
 
     private void Start()
     {
-        scoreboard = FindObjectOfType<ScoreBoard>();
         scores = FindObjectOfType<Scores>();
         audioSource = GetComponent<AudioSource>();
         particles = FindObjectOfType<ParticleSystem>();
@@ -34,11 +32,11 @@ public class GameSystem : MonoBehaviour
         theClub = FindObjectOfType<Club>();
         shotCountText = FindObjectOfType<TextMeshProUGUI>();
         courseIndex = SceneManager.GetActiveScene().buildIndex;
-        shotCount = 0;
+        scores.ResetShots();
         goalAt7thSwing = false;
 
     }
-
+    /*
     public void AddShot()
     {
         shotCount++;
@@ -48,19 +46,19 @@ public class GameSystem : MonoBehaviour
         if (shotCount >= 7)
             StartCoroutine(TooManyShots());
     }
-
+    */
     // Goal trigger, but if the ball is moving too fast, it won't trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (theBall.rb.velocity.magnitude < 4.0f)
+        if (theBall.rb.velocity.magnitude < 3.5f)
         {
-            scores.SetScore(courseIndex, shotCount);
+            scores.SetScore(courseIndex, scores.GetShotCount());
             StartCoroutine(Goal());
         }
     }
 
     // Executes when the player had swung his 7th swing. If no goal, it counts as 8 shots
-    IEnumerator TooManyShots()
+    public IEnumerator TooManyShots(int shotCount)
     {
         shotCountText.color = Color.red;
         yield return new WaitUntil(() => theClub.ongoingShoot == false);
@@ -79,18 +77,19 @@ public class GameSystem : MonoBehaviour
     // Activating particles to cheer the player, waiting 3 sec, then loads next scene
     IEnumerator Goal()
     {
-        Debug.Log("Goal! Shots: " + shotCount);
+        Debug.Log("Goal! Shots: " + scores.GetShotCount());
         goalAt7thSwing = true; // Just in case
         audioSource.PlayOneShot(sounds[0], 1f);
         theBall.DestroyBall();
         particles.Play();
         yield return new WaitForSeconds(3f);
-        LoadNextScene(shotCount);
+        LoadNextScene(scores.GetShotCount());
     }
 
     public void LoadNextScene(int finalShotCount)
     {
-        shotCount = finalShotCount;
+        int tempShot = scores.GetShotCount();
+        finalShotCount = tempShot;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

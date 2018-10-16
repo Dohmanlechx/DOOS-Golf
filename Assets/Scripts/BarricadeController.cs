@@ -8,6 +8,7 @@ public class BarricadeController : MonoBehaviour
 
     // Cached references
     public GameSystem gameSystem;
+    public Scores scores;
     public Ball theBall;
     public Club theClub;
 
@@ -17,6 +18,7 @@ public class BarricadeController : MonoBehaviour
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
+        scores = FindObjectOfType<Scores>();
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
     }
@@ -44,13 +46,13 @@ public class BarricadeController : MonoBehaviour
         // Exclusive for Course 4
         // After 5 colliderhits with those barricades, the course resets
         if (SceneManager.GetActiveScene().name == "Course 4" &&
-            collisionHits >= 5 && gameSystem.GetShotCount() < 7)
+            collisionHits >= 5 && scores.GetShotCount() < 7)
         {
             RestartCurrentScene();
         }
         // If player after his 7th swing still misses, game loads next course and sets 8 as total swings
         else if (SceneManager.GetActiveScene().name == "Course 4" &&
-            collisionHits >= 5 && gameSystem.GetShotCount() >= 7)
+            collisionHits >= 5 && scores.GetShotCount() >= 7)
         {
             StartCoroutine(WaitThenLoadNextScene());
         }

@@ -64,7 +64,7 @@ public class Club : MonoBehaviour
     {
         if (shootIsReleased)
         {
-            FindObjectOfType<GameSystem>().AddShot();
+            FindObjectOfType<Scores>().AddShot();
             MakeClubInvisible(true);
         }
     }
