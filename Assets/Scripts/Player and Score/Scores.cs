@@ -14,7 +14,7 @@ public class Scores : MonoBehaviour
     private static Scores _instance;
     private int[] player1Scores;
     //private static int shotCount;
-    private static int totalShotsCount = 0;
+    private int totalShotsCount = 0;
     //private static bool created = false;
 
     public static Scores Instance
@@ -24,7 +24,7 @@ public class Scores : MonoBehaviour
             if (_instance == null)
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Scores"));
-                 _instance = obj.GetComponent<Scores>();
+                _instance = obj.GetComponent<Scores>();
             }
             return _instance;
         }
@@ -102,12 +102,12 @@ public class Scores : MonoBehaviour
 
     public int GetTotalShotsCount()
     {
+        totalShotsCount = 0;
+        for (int i = 1; i < player1Scores.Length; i++)
+        {
+            totalShotsCount += player1Scores[i];
+        }
         return totalShotsCount;
-    }
-
-    public void AddOneShotToTotal()
-    {
-        totalShotsCount++;
     }
 
     public void SetScore(int course, int shotCount)

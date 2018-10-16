@@ -37,6 +37,11 @@ public class SteepController : MonoBehaviour
             theBall.rb.angularDrag = 0.05f;
         }
         yield return new WaitUntil(() => isGravityArea == false);
+        RestoreDefaultGravity();
+    }
+
+    public void RestoreDefaultGravity()
+    {
         theBall.rb.gravityScale = 0f;
         theBall.rb.mass = 0.2f;
         theBall.rb.drag = 0.85f;

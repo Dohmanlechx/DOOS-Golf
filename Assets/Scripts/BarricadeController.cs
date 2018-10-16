@@ -8,6 +8,8 @@ public class BarricadeController : MonoBehaviour
 
     // Cached references
     public GameSystem gameSystem;
+    public SteepController steepController;
+
     //public Scores scores;
     public Ball theBall;
     public Club theClub;
@@ -18,6 +20,7 @@ public class BarricadeController : MonoBehaviour
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
+        steepController = FindObjectOfType<SteepController>();
         //scores = FindObjectOfType<Scores>();
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
@@ -39,6 +42,7 @@ public class BarricadeController : MonoBehaviour
         // If the ball rolls back and hits on the rear of course, this executes
         if (gameObject.CompareTag("Restart"))
         {
+            steepController.RestoreDefaultGravity();
             ResetBallPosition();
             collisionHits = 0;
         }
@@ -48,6 +52,7 @@ public class BarricadeController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Course 4" &&
             collisionHits >= 5 && gameSystem.GetShotCount() < 7)
         {
+            steepController.RestoreDefaultGravity();
             ResetBallPosition();
         }
         // If player after his 7th swing still misses, game loads next course and sets 8 as total swings

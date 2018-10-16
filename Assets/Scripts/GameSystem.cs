@@ -42,7 +42,6 @@ public class GameSystem : MonoBehaviour
     public void AddShot()
     {
         shotCount++;
-        scores.AddOneShotToTotal();
         Debug.Log("shotCount:" + shotCount);
         Debug.Log("totalShotsCount: " + scores.GetTotalShotsCount());
         shotCountText.SetText(shotCount.ToString());
