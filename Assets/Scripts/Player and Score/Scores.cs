@@ -12,8 +12,9 @@ public class Scores : MonoBehaviour
 
     // Private variables
     private static Scores _instance;
-    private int[] player1Scores = new int[20];
+    private int[] player1Scores;
     private static int shotCount;
+    private static int totalShotsCount = 0;
     private bool foundGameSystem = false;
     //private static bool created = false;
 
@@ -46,6 +47,7 @@ public class Scores : MonoBehaviour
 
     private void Start()
     {
+        player1Scores = new int[20];
         Debug.Log("Start runs");
         //gameSystem = FindObjectOfType<GameSystem>();
     }
@@ -59,10 +61,12 @@ public class Scores : MonoBehaviour
     }
 
     public int GetShotCount() { return shotCount; }
+    public int GetTotalShotsCount() { return totalShotsCount; }
 
     public void AddShot()
     {
         shotCount++;
+        totalShotsCount++;
         Debug.Log("shotCount: " + shotCount);
         gameSystem.shotCountText.SetText(shotCount.ToString());
 

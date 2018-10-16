@@ -40,7 +40,7 @@ public class BarricadeController : MonoBehaviour
         // If the ball rolls back and hits on the rear of course, this executes
         if (SceneManager.GetActiveScene().name == "Course 3")
         {
-            RestartCurrentScene();
+            ResetBallPosition();
         }
 
         // Exclusive for Course 4
@@ -48,7 +48,7 @@ public class BarricadeController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Course 4" &&
             collisionHits >= 5 && scores.GetShotCount() < 7)
         {
-            RestartCurrentScene();
+            ResetBallPosition();
         }
         // If player after his 7th swing still misses, game loads next course and sets 8 as total swings
         else if (SceneManager.GetActiveScene().name == "Course 4" &&
@@ -56,6 +56,12 @@ public class BarricadeController : MonoBehaviour
         {
             StartCoroutine(WaitThenLoadNextScene());
         }
+    }
+
+    private void ResetBallPosition()
+    {
+        theBall.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        theBall.gameObject.transform.position = new Vector2(0, -3);
     }
 
     private static void RestartCurrentScene()

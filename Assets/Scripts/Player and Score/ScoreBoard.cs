@@ -56,6 +56,8 @@ public class ScoreBoard : MonoBehaviour
                 int[] myScores = scores.GetScores();
                 player1TextMeshs[i].SetText(myScores[i].ToString());
             }
+
+            player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString());
         }
     }
 

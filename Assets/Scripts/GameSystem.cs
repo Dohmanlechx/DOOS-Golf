@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
 
     private void Start()
     {
+        Scores.Instance.ResetShots();
         scores = FindObjectOfType<Scores>();
         audioSource = GetComponent<AudioSource>();
         particles = FindObjectOfType<ParticleSystem>();
@@ -32,7 +33,6 @@ public class GameSystem : MonoBehaviour
         theClub = FindObjectOfType<Club>();
         shotCountText = FindObjectOfType<TextMeshProUGUI>();
         courseIndex = SceneManager.GetActiveScene().buildIndex;
-        Scores.Instance.ResetShots();
         goalAt7thSwing = false;
     }
     /*
@@ -87,8 +87,9 @@ public class GameSystem : MonoBehaviour
 
     public void LoadNextScene(int finalShotCount)
     {
-        int tempShot = scores.GetShotCount();
-        finalShotCount = tempShot;
+        //int tempShot = scores.GetShotCount();
+        //finalShotCount = tempShot;
+        scores.SetScore(courseIndex, finalShotCount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
