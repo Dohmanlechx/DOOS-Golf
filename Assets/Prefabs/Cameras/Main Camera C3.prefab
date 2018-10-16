@@ -136,7 +136,7 @@ MonoBehaviour:
   MIN_X: -1.5
   MAX_X: 1.5
   MIN_Y: -0.8
-  MAX_Y: 5
+  MAX_Y: 6
 --- !u!212 &212399283691865482
 SpriteRenderer:
   m_ObjectHideFlags: 1
