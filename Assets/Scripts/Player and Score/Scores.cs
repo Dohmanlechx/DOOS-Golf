@@ -13,9 +13,8 @@ public class Scores : MonoBehaviour
     // Private variables
     private static Scores _instance;
     private int[] player1Scores;
-    private static int shotCount;
+    //private static int shotCount;
     private static int totalShotsCount = 0;
-    private bool foundGameSystem = false;
     //private static bool created = false;
 
     public static Scores Instance
@@ -48,8 +47,6 @@ public class Scores : MonoBehaviour
     private void Start()
     {
         player1Scores = new int[20];
-        Debug.Log("Start runs");
-        //gameSystem = FindObjectOfType<GameSystem>();
     }
 
     private void Update()
@@ -60,8 +57,20 @@ public class Scores : MonoBehaviour
         }
     }
 
+    /*
     public int GetShotCount() { return shotCount; }
+
+    public void AddShotToCount(int shot)
+    {
+        shotCount++;
+    }
+
     public int GetTotalShotsCount() { return totalShotsCount; }
+
+    public void AddShotToTotal(int shot)
+    {
+        totalShotsCount++;
+    }
 
     public void AddShot()
     {
@@ -80,14 +89,29 @@ public class Scores : MonoBehaviour
     {
         shotCount = 0;
     }
+       */
+    public void NeverMind()
+    {
+        Debug.Log("Never mind");
+    }
 
     public int[] GetScores()
     {
         return player1Scores;
     }
 
-    public void SetScore(int course, int score)
+    public int GetTotalShotsCount()
     {
-        player1Scores[course] = score;
+        return totalShotsCount;
+    }
+
+    public void AddOneShotToTotal()
+    {
+        totalShotsCount++;
+    }
+
+    public void SetScore(int course, int shotCount)
+    {
+        player1Scores[course] = shotCount;
     }
 }

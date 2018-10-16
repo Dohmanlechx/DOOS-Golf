@@ -658,17 +658,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114349257706631670, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
+        type: 2}
+      propertyPath: theBall
+      value: 
+      objectReference: {fileID: 1958718205}
     - target: {fileID: 114046649420341390, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
         type: 2}
       propertyPath: rb
       value: 
       objectReference: {fileID: 1958718208}
     - target: {fileID: 114046649420341390, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
-        type: 2}
-      propertyPath: theBall
-      value: 
-      objectReference: {fileID: 1958718205}
-    - target: {fileID: 114349257706631670, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
         type: 2}
       propertyPath: theBall
       value: 

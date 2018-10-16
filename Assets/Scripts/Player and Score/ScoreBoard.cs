@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
+    public GameSystem gameSystem;
     public Scores scores;
 
     //private static bool created = false;
@@ -32,6 +33,7 @@ public class ScoreBoard : MonoBehaviour
 
     private void Start()
     {
+        gameSystem = FindObjectOfType<GameSystem>();
         scores = FindObjectOfType<Scores>();
         UpdateScoreBoard();
         //amountPlayers = playerHandler.getPlayerAmount();
@@ -51,10 +53,19 @@ public class ScoreBoard : MonoBehaviour
     {
         if (scores != null)
         {
-            for (int i = 0; i <= player1TextMeshs.Count -1; i++)
+            for (int i = 1; i <= player1TextMeshs.Count - 1; i++)
             {
                 int[] myScores = scores.GetScores();
-                player1TextMeshs[i].SetText(myScores[i].ToString());
+                Debug.Log(myScores[i]);
+                Debug.Log(myScores[i] == 0);
+                if (myScores[i] == 0)
+                {
+                    player1TextMeshs[i].SetText("");
+                }
+                else
+                {
+                    player1TextMeshs[i].SetText(myScores[i].ToString());
+                }
             }
 
             player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString());

@@ -11,6 +11,7 @@ TagManager:
   - NormalBounce
   - Forcebouncer
   - WinZone
+  - Restart
   layers:
   - Default
   - TransparentFX

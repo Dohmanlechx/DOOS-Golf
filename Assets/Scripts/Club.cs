@@ -27,7 +27,7 @@ public class Club : MonoBehaviour
     private bool shootIsReleased = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
-    private Vector3 inputOffset;
+    private Vector2 inputOffset;
     private float offset = 0.4f; // Use 0f for PC/Mac build
 
     // Start
@@ -64,7 +64,7 @@ public class Club : MonoBehaviour
     {
         if (shootIsReleased)
         {
-            FindObjectOfType<Scores>().AddShot();
+            FindObjectOfType<GameSystem>().AddShot();
             MakeClubInvisible(true);
         }
     }
@@ -111,7 +111,7 @@ public class Club : MonoBehaviour
 
         // Max drag distance
         if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
-            transform.position = clubHookRb.position + ((inputPos + (Vector2)inputOffset) - clubHookRb.position).normalized * maxDragDistance;
+            transform.position = clubHookRb.position + ((inputPos + inputOffset) - clubHookRb.position).normalized * maxDragDistance;
         else
             transform.position = position;
     }
@@ -148,7 +148,7 @@ public class Club : MonoBehaviour
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
         clubRb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         alreadyExecuted = false;
     }
