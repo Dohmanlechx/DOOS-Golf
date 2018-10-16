@@ -64,7 +64,7 @@ public class Club : MonoBehaviour
     {
         if (shootIsReleased)
         {
-            FindObjectOfType<GameSystem>().AddShot();
+            FindObjectOfType<Scores>().AddShot();
             MakeClubInvisible(true);
         }
     }
@@ -147,6 +147,7 @@ public class Club : MonoBehaviour
     {
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
+        clubRb.velocity = Vector2.zero;
         yield return new WaitForSeconds(2f);
 
         alreadyExecuted = false;
