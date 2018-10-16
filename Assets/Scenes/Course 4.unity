@@ -598,6 +598,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f465b21bd3771407b9351ec63036d9e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675c9a5c75a2eb74cabedaa3bbb190eb, type: 2}
   m_IsPrefabAsset: 0

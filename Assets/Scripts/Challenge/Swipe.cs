@@ -17,13 +17,15 @@ public class Swipe : MonoBehaviour {
 
     public AudioSource audioSource;
     [SerializeField] List<AudioClip> sounds;
+    public AudioClip win;
 
     bool hasThrown = false;
     bool hasBounced = false;
+    bool hasWon = false;
 
     void Start() {
         defaultPos = transform.position;
-    Debug.Log(defaultPos);
+        Debug.Log(defaultPos);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         hmmSpeed = new Vector2(10f, 10f);
     }
@@ -51,69 +53,87 @@ public class Swipe : MonoBehaviour {
 	}
 #endif
 
-   
+
 #if UNITY_STANDALONE
-    void FixedUpdate(){
-        
-        if(hasThrown == false && Input.GetMouseButtonDown(0)){
+    void Update() {
+
+        if (hasThrown == false && Input.GetMouseButtonDown(0)) {
             touchTimeStart = Time.time;
             startPos = Input.mousePosition;
+            Debug.Log("DOWN");
         }
 
-        if(hasThrown == false && Input.GetMouseButtonUp(0))
+        if (hasThrown == false && Input.GetMouseButtonUp(0))
         {
             touchTimeFinish = Time.time;
             timeInterval = touchTimeFinish - touchTimeStart;
             endPos = Input.mousePosition;
             direction = startPos - endPos;
             GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
+            Debug.Log("UP");
             hasThrown = true;
         }
-        
+
     }
 #endif
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(hasThrown == true){
+        if (hasThrown == true) {
             playSound();
         }
-        if (hasThrown == true && coll.gameObject.tag == "DangerZone"){
+        if (hasThrown == true && coll.gameObject.tag == "DangerZone") {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
             Debug.Log(defaultPos);
             transform.position = defaultPos;
             Debug.Log(transform.position);
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
             hasThrown = false;
         }
 
-        if(hasThrown == true && coll.gameObject.tag == "Forcebouncer"){
+        if (hasThrown == true && coll.gameObject.tag == "Forcebouncer") {
             oldSpeed = GetComponent<Rigidbody2D>().velocity;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * hmmSpeed, ForceMode2D.Impulse);
             newSpeed = GetComponent<Rigidbody2D>().velocity;
             Debug.Log("Sprite should change");
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteB; 
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteB;
             hasBounced = true;
         }
 
-        if(hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce"){
-            GetComponent<Rigidbody2D>().AddForce(-GetComponent<Rigidbody2D>().velocity /hmmSpeed);
+        if (hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce") {
+            GetComponent<Rigidbody2D>().AddForce(-GetComponent<Rigidbody2D>().velocity / hmmSpeed);
             Debug.Log("normalbounce reached");
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW; 
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
             hasBounced = false;
         }
 
-        if(coll.gameObject.tag == "WinZone")
+        if (coll.gameObject.tag == "WinZone")
         {
-            SceneManager.LoadScene("Challenge 2");
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().angularVelocity = 0;
+            if (hasWon == false) {
+                hasWon = true;
+                audioSource.PlayOneShot(win, 2f);
+                StartCoroutine(Wait());
+            }
         }
-       
+
+    }
+
+    IEnumerator Wait()
+    {
+        Debug.Log("Wait reached");
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("Challenge 2");
     }
    
     private void playSound()
     {
-        int randomSound = Random.Range(0, 3);
-        audioSource.PlayOneShot(sounds[randomSound], 1f);
+        if(hasWon == false) {
+            int randomSound = Random.Range(0, 3);
+            audioSource.PlayOneShot(sounds[randomSound], 1f);
+        }
     }
 
 }
