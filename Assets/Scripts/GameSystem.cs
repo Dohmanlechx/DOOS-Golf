@@ -32,9 +32,8 @@ public class GameSystem : MonoBehaviour
         theClub = FindObjectOfType<Club>();
         shotCountText = FindObjectOfType<TextMeshProUGUI>();
         courseIndex = SceneManager.GetActiveScene().buildIndex;
-        scores.ResetShots();
+        Scores.Instance.ResetShots();
         goalAt7thSwing = false;
-
     }
     /*
     public void AddShot()

@@ -23,7 +23,8 @@ public class Scores : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = Instantiate(Resources.Load<GameObject>("Scores")).GetComponent<Scores>();
+                GameObject obj = Instantiate(Resources.Load<GameObject>("Scores"));
+                 _instance = obj.GetComponent<Scores>();
             }
             return _instance;
         }
