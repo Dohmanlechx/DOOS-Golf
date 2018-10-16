@@ -292,7 +292,22 @@ Prefab:
         type: 2}
       propertyPath: theBall
       value: 
-      objectReference: {fileID: 1317025494}
+      objectReference: {fileID: 33011393}
+    - target: {fileID: 114165222481970282, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165222481970282, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f465b21bd3771407b9351ec63036d9e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7df44ad6e426e34478675469bc2f09d9, type: 2}
   m_IsPrefabAsset: 0

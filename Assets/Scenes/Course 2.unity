@@ -568,7 +568,7 @@ Prefab:
         type: 2}
       propertyPath: theClub
       value: 
-      objectReference: {fileID: 583945448}
+      objectReference: {fileID: 8300000, guid: f465b21bd3771407b9351ec63036d9e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ed90c2f38c610b4f8ebb37cbffeeff1, type: 2}
   m_IsPrefabAsset: 0
