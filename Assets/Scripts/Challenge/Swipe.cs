@@ -7,9 +7,9 @@ public class Swipe : MonoBehaviour
 {
 
     public SpriteRenderer spriteRenderer;
-    public Sprite spriteW, spriteR, spriteG, spriteB;
+    public Sprite spriteW, spriteR, spriteG, spriteB, spriteY;
 
-    Vector2 startPos, endPos, direction, defaultPos, oldSpeed, newSpeed, hmmSpeed;
+    Vector2 startPos, endPos, direction, defaultPos, oldSpeed, newSpeed, hmmSpeed, currentPos;
     float touchTimeStart, touchTimeFinish, timeInterval;
 
     [Range(0.05f, 1f)]
@@ -23,9 +23,10 @@ public class Swipe : MonoBehaviour
     bool hasThrown = false;
     bool hasBounced = false;
     bool hasWon = false;
+    bool hasFreeze = false;
+    bool hasDied = false;
 
-    void Start()
-    {
+    void Start(){
         defaultPos = transform.position;
         Debug.Log(defaultPos);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
@@ -57,90 +58,114 @@ public class Swipe : MonoBehaviour
 
 
 #if UNITY_STANDALONE
-    void Update()
-    {
+    void Update(){
 
-        if (hasThrown == false && Input.GetMouseButtonDown(0))
-        {
+        currentPos = transform.position;
+        if (hasThrown == false && Input.GetMouseButtonDown(0)){
             touchTimeStart = Time.time;
             startPos = Input.mousePosition;
-            Debug.Log("DOWN");
         }
 
-        if (hasThrown == false && Input.GetMouseButtonUp(0))
-        {
+        if (hasThrown == false && Input.GetMouseButtonUp(0)){
             touchTimeFinish = Time.time;
             timeInterval = touchTimeFinish - touchTimeStart;
             endPos = Input.mousePosition;
             direction = startPos - endPos;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
             GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
-            Debug.Log("UP");
             hasThrown = true;
+            hasFreeze = false;
         }
 
+        if (hasFreeze == true){
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().angularVelocity = 0;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteY;
+        }
+
+        if (hasFreeze != true && hasBounced != true && hasDied != true){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
+        }
+        if (hasDied == true){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
+        }
     }
 #endif
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (hasThrown == true)
-        {
-            playSound();
-        }
-        if (hasThrown == true && coll.gameObject.tag == "DangerZone")
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().angularVelocity = 0;
-            Debug.Log(defaultPos);
-            transform.position = defaultPos;
-            Debug.Log(transform.position);
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
-            hasThrown = false;
+    void OnCollisionEnter2D(Collision2D coll){
+        //Plays collision sound when colliding with anything
+        if (hasThrown == true){
+            playCollision();
         }
 
-        if (hasThrown == true && coll.gameObject.tag == "Forcebouncer")
-        {
+        //Resets playerposition
+        if (hasThrown == true && coll.gameObject.tag == "DangerZone"){
+            StartCoroutine(Death());
+        }
+
+        //Gives the player a big boost to his bounce
+        if (hasThrown == true && coll.gameObject.tag == "Forcebouncer"){
             oldSpeed = GetComponent<Rigidbody2D>().velocity;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * hmmSpeed, ForceMode2D.Impulse);
             newSpeed = GetComponent<Rigidbody2D>().velocity;
-            Debug.Log("Sprite should change");
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteB;
             hasBounced = true;
         }
 
-        if (hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce")
-        {
+        //After ForceBouncer has been in effect, this is the first collision that happens thus will reset the speed and the sprite
+        if (hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce"){
             GetComponent<Rigidbody2D>().AddForce(-GetComponent<Rigidbody2D>().velocity / hmmSpeed);
-            Debug.Log("normalbounce reached");
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
             hasBounced = false;
         }
 
-        if (coll.gameObject.tag == "WinZone")
+        if(coll.gameObject.tag == "NormalBounce")
         {
+            Debug.Log("ChangetoWhite!!!");
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
+        }
+        
+        if (hasThrown == true && coll.gameObject.tag == "PlusZone"){
+            transform.position = currentPos;
+            hasFreeze = true;
+           hasThrown = false;
+        }
+
+        //Win!!!
+        if (coll.gameObject.tag == "WinZone"){
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
-            if (hasWon == false)
-            {
+            if (hasWon == false){
                 hasWon = true;
                 audioSource.PlayOneShot(win, 2f);
-                StartCoroutine(Wait());
+                StartCoroutine(ChangeMap());
             }
         }
 
     }
 
-    IEnumerator Wait()
-    {
-        Debug.Log("Wait reached");
+    IEnumerator ChangeMap(){
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene("Challenge 2");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
-    private void playSound()
-    {
-        if (hasWon == false)
-        {
+    IEnumerator Death(){
+        hasDied = true;
+        Debug.Log("Should wait here");
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
+        yield return new WaitForSeconds(0.3f);
+        transform.position = defaultPos;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
+        hasDied = false;
+        hasThrown = false;
+    }
+
+    private void playCollision(){
+        if (hasWon == false){
             int randomSound = Random.Range(0, 3);
             audioSource.PlayOneShot(sounds[randomSound], 1f);
         }
