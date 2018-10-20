@@ -51,6 +51,12 @@ public class ScoreBoard : MonoBehaviour
                 }
             }
 
+            // Telling to players that those courses don't exist yet (warning for hard-coding)
+            for (int j = 6; j <= 18; j++)
+            {
+                player1TextMeshs[j].SetText("x");
+            }
+
             player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString()); // Updating total shots in scoreboard
         }
     }
