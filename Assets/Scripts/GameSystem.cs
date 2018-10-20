@@ -16,6 +16,7 @@ public class GameSystem : MonoBehaviour
     // Private variables
     private AudioSource audioSource;
     [SerializeField] List<AudioClip> sounds;
+    private static int currentPlayer = 1;
     private static int shotCount;
     private bool goalAt7thSwing;
     private int courseIndex;
@@ -67,9 +68,9 @@ public class GameSystem : MonoBehaviour
     // Goal trigger, but if the ball is moving too fast, it won't trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (theBall.rb.velocity.magnitude < 3.5f)
+        if (theBall.rb.velocity.magnitude < 3.75f)
         {
-            scores.SetScore(courseIndex, shotCount);
+            scores.SetScore(courseIndex, currentPlayer, shotCount);
             StartCoroutine(Goal());
         }
     }
@@ -88,7 +89,7 @@ public class GameSystem : MonoBehaviour
 
     public void LoadNextScene(int finalShotCount)
     {
-        scores.SetScore(courseIndex, finalShotCount);
+        scores.SetScore(courseIndex, currentPlayer, finalShotCount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
