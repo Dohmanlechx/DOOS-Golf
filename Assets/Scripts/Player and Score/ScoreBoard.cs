@@ -33,15 +33,19 @@ public class ScoreBoard : MonoBehaviour
         listOfAllPlayers.Add(player3TextMeshs);
         listOfAllPlayers.Add(player4TextMeshs);
 
-        UpdateScoreBoard();
+        foreach (List<TextMeshPro> playerTextMeshs in listOfAllPlayers)
+        {
+            UpdateScoreBoard(playerTextMeshs);
+        }
     }
 
-    private void UpdateScoreBoard()
+    private void UpdateScoreBoard(List<TextMeshPro> thisPlayer)
     {
         if (scores != null)
         {
+            /*
             List<TextMeshPro> thisPlayer = new List<TextMeshPro>();
-            for (int i = 0; i <= amountPlayers; i++)
+            for (int i = 1; i <= amountPlayers; i++)
             {
                 switch (amountPlayers)
                 {
@@ -58,6 +62,7 @@ public class ScoreBoard : MonoBehaviour
                         thisPlayer = player4TextMeshs;
                         break;
                 }
+                */
 
                 for (int j = 1; j <= thisPlayer.Count - 1; j++)
                 {
@@ -80,7 +85,6 @@ public class ScoreBoard : MonoBehaviour
             }
 
             thisPlayer[19].SetText(scores.GetTotalShotsCount().ToString()); // Updating total shots in scoreboard
-        }
     }
 
     // Access from ButtonScript.cs, needed to recall the course's index
