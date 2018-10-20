@@ -298,11 +298,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114706187138782864, guid: 98fe1be0e0593154390bcd9271468574,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4444080076394944, guid: 98fe1be0e0593154390bcd9271468574, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -345,26 +340,6 @@ Prefab:
       propertyPath: theClub
       value: 
       objectReference: {fileID: 106965810}
-    - target: {fileID: 114891308525849412, guid: 98fe1be0e0593154390bcd9271468574,
-        type: 2}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114706187138782864, guid: 98fe1be0e0593154390bcd9271468574,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114706187138782864, guid: 98fe1be0e0593154390bcd9271468574,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114706187138782864, guid: 98fe1be0e0593154390bcd9271468574,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fe1be0e0593154390bcd9271468574, type: 2}
   m_IsPrefabAsset: 0

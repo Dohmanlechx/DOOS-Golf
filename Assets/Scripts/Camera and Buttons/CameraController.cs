@@ -9,14 +9,15 @@ public class CameraController : MonoBehaviour
     public Club theClub;
 
     // Public variables
-    public Vector3 offset;
-    public float MIN_X;
-    public float MAX_X;
-    public float MIN_Y;
-    public float MAX_Y;
 
     // Private variables
+    [SerializeField] float MIN_X;
+    [SerializeField] float MAX_X;
+    [SerializeField] float MIN_Y;
+    [SerializeField] float MAX_Y;
+    private Vector2 startPosition = new Vector2(0, -0.8f);
     private Vector3 touchStart;
+    private Vector3 offset;
 
     private void Start()
     {
@@ -48,8 +49,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    // This method is needed for builds
     public void RestoreCameraToStartPosition()
     {
-        transform.position = new Vector2(0, -0.8f);
+        transform.position = startPosition;
     }
 }
