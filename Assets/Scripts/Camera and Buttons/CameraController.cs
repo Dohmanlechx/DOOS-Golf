@@ -47,4 +47,9 @@ public class CameraController : MonoBehaviour
                 Mathf.Clamp(transform.position.z, -10f, -10f));
         }
     }
+
+    public void RestoreCameraToStartPosition()
+    {
+        transform.position = new Vector2(0, -0.8f);
+    }
 }

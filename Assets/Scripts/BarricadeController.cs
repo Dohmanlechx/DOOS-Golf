@@ -8,6 +8,7 @@ public class BarricadeController : MonoBehaviour
 
     // Cached references
     public GameSystem gameSystem;
+    public CameraController cameraController;
     public SteepController steepController;
 
     //public Scores scores;
@@ -20,6 +21,7 @@ public class BarricadeController : MonoBehaviour
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
+        cameraController = FindObjectOfType<CameraController>();
         steepController = FindObjectOfType<SteepController>();
 
         theBall = FindObjectOfType<Ball>();
@@ -66,6 +68,7 @@ public class BarricadeController : MonoBehaviour
     {
         theBall.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         theBall.gameObject.transform.position = new Vector2(0, -3);
+        cameraController.RestoreCameraToStartPosition();
     }
 
     // Having this method just because I want it to wait a bit
