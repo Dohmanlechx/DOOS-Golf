@@ -5861,6 +5861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
   scores: {fileID: 0}
+  choosePlayers: {fileID: 0}
   player1TextMeshs:
   - {fileID: 579308517}
   - {fileID: 2061011671}
@@ -5882,6 +5883,69 @@ MonoBehaviour:
   - {fileID: 1192691677}
   - {fileID: 156594542}
   - {fileID: 1234269873}
+  player2TextMeshs:
+  - {fileID: 696247747}
+  - {fileID: 1893190504}
+  - {fileID: 1511211757}
+  - {fileID: 42745931}
+  - {fileID: 687747566}
+  - {fileID: 1900770469}
+  - {fileID: 728659256}
+  - {fileID: 1320983704}
+  - {fileID: 1284681667}
+  - {fileID: 1097032581}
+  - {fileID: 923420594}
+  - {fileID: 1390026437}
+  - {fileID: 1564084440}
+  - {fileID: 1412715905}
+  - {fileID: 2105738976}
+  - {fileID: 1157198530}
+  - {fileID: 742697089}
+  - {fileID: 1799903957}
+  - {fileID: 1329516480}
+  - {fileID: 1338303039}
+  player3TextMeshs:
+  - {fileID: 52756182}
+  - {fileID: 1540060711}
+  - {fileID: 1048505188}
+  - {fileID: 223415068}
+  - {fileID: 1251099822}
+  - {fileID: 1401342676}
+  - {fileID: 1001457073}
+  - {fileID: 1209131704}
+  - {fileID: 805646601}
+  - {fileID: 1944287134}
+  - {fileID: 599395624}
+  - {fileID: 2141251994}
+  - {fileID: 180960652}
+  - {fileID: 1429255980}
+  - {fileID: 342427129}
+  - {fileID: 2001750420}
+  - {fileID: 1108584098}
+  - {fileID: 979331322}
+  - {fileID: 911912969}
+  - {fileID: 1564285283}
+  player4TextMeshs:
+  - {fileID: 519196517}
+  - {fileID: 364893809}
+  - {fileID: 1308813101}
+  - {fileID: 146951847}
+  - {fileID: 1143602680}
+  - {fileID: 1594920668}
+  - {fileID: 1509158586}
+  - {fileID: 1724210268}
+  - {fileID: 141720086}
+  - {fileID: 1041698372}
+  - {fileID: 360009631}
+  - {fileID: 707300928}
+  - {fileID: 39223478}
+  - {fileID: 1574879981}
+  - {fileID: 1053832786}
+  - {fileID: 940705930}
+  - {fileID: 1495322364}
+  - {fileID: 274626161}
+  - {fileID: 1819104569}
+  - {fileID: 1260736218}
   isContinue: 0
 --- !u!1 &902984990
 GameObject:
@@ -14717,7 +14781,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}
   scores: {fileID: 0}
+  choosePlayers: {fileID: 0}
   player1TextMeshs: []
+  player2TextMeshs: []
+  player3TextMeshs: []
+  player4TextMeshs: []
   isContinue: 1
 --- !u!1 &1799903955
 GameObject:

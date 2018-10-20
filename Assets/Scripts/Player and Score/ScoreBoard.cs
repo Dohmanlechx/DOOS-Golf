@@ -12,52 +12,74 @@ public class ScoreBoard : MonoBehaviour
 
     // Public variables
     public List<TextMeshPro> player1TextMeshs = new List<TextMeshPro>();
+    public List<TextMeshPro> player2TextMeshs = new List<TextMeshPro>();
+    public List<TextMeshPro> player3TextMeshs = new List<TextMeshPro>();
+    public List<TextMeshPro> player4TextMeshs = new List<TextMeshPro>();
+    public ArrayList listOfAllPlayers = new ArrayList();
     public bool isContinue;
 
     // Private variables
     private static int lastCourseIndex;
-
-    /*
-    public List<TextMeshPro> player2Holes = new List<TextMeshPro>();
-    public List<TextMeshPro> player3Holes = new List<TextMeshPro>();
-    public List<TextMeshPro> player4Holes = new List<TextMeshPro>();
-    
-    public PlayerHandler playerHandler;
     private int amountPlayers;
-    */
 
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
         scores = FindObjectOfType<Scores>();
+        amountPlayers = ChoosePlayers.GetAmountPlayers();
+
+        listOfAllPlayers.Add(player1TextMeshs);
+        listOfAllPlayers.Add(player2TextMeshs);
+        listOfAllPlayers.Add(player3TextMeshs);
+        listOfAllPlayers.Add(player4TextMeshs);
+
         UpdateScoreBoard();
-        //amountPlayers = playerHandler.getPlayerAmount();
     }
 
     private void UpdateScoreBoard()
     {
         if (scores != null)
         {
-            for (int i = 1; i <= player1TextMeshs.Count - 1; i++)
+            List<TextMeshPro> thisPlayer = new List<TextMeshPro>();
+            for (int i = 0; i <= amountPlayers; i++)
             {
-                int[] myScores = scores.GetScores();
-                if (myScores[i] == 0)
+                switch (amountPlayers)
                 {
-                    player1TextMeshs[i].SetText(""); // Unplayed courses
+                    case 1:
+                        thisPlayer = player1TextMeshs;
+                        break;
+                    case 2:
+                        thisPlayer = player2TextMeshs;
+                        break;
+                    case 3:
+                        thisPlayer = player3TextMeshs;
+                        break;
+                    case 4:
+                        thisPlayer = player4TextMeshs;
+                        break;
                 }
-                else
+
+                for (int j = 1; j <= thisPlayer.Count - 1; j++)
                 {
-                    player1TextMeshs[i].SetText(myScores[i].ToString()); // Played courses
+                    int[] myScores = scores.GetScores();
+                    if (myScores[j] == 0)
+                    {
+                        thisPlayer[j].SetText(""); // Unplayed courses
+                    }
+                    else
+                    {
+                        thisPlayer[j].SetText(myScores[j].ToString()); // Played courses
+                    }
+                }
+
+                // Telling to players that those courses don't exist yet (warning for hard-coding)
+                for (int k = 6; k <= 18; k++)
+                {
+                    thisPlayer[k].SetText("x");
                 }
             }
 
-            // Telling to players that those courses don't exist yet (warning for hard-coding)
-            for (int j = 6; j <= 18; j++)
-            {
-                player1TextMeshs[j].SetText("x");
-            }
-
-            player1TextMeshs[19].SetText(scores.GetTotalShotsCount().ToString()); // Updating total shots in scoreboard
+            thisPlayer[19].SetText(scores.GetTotalShotsCount().ToString()); // Updating total shots in scoreboard
         }
     }
 

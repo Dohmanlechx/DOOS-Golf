@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
         }
         if (isNewGame)
         {
+            // TODO OLIVER: När rutan är framme ska backgrunden vara lite mörkare
             mainmenu.SetActive(false);
             popup.SetActive(true);
         }

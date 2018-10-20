@@ -13,7 +13,7 @@ public class Scores : MonoBehaviour
 
     // Private variables
     private static Scores _instance;
-    private int[] player1Scores;
+    private int[] player1Scores, player2Scores, player3Scores, player4Scores;
     private int totalShotsCount = 0;
 
     // Singleton
