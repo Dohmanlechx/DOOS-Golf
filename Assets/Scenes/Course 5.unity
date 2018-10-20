@@ -162,6 +162,16 @@ Prefab:
       propertyPath: theClub
       value: 
       objectReference: {fileID: 717360357}
+    - target: {fileID: 224262721235694844, guid: 98fe1be0e0593154390bcd9271468574,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224450942602289482, guid: 98fe1be0e0593154390bcd9271468574,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fe1be0e0593154390bcd9271468574, type: 2}
   m_IsPrefabAsset: 0
@@ -320,7 +330,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4920400235592260, guid: 37e6518742048c94fae42c35930328e7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4920400235592260, guid: 37e6518742048c94fae42c35930328e7, type: 2}
       propertyPath: m_LocalPosition.z
