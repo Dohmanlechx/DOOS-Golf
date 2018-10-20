@@ -38,6 +38,7 @@ public class Swipe : MonoBehaviour
 #if UNITY_ANDROID
     void FixedUpdate () {
 	    
+        currentPos = transform.position;
         //Touching the screen
         if(hasThrown == false && Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began){
             touchTimeStart = Time.time;
@@ -50,28 +51,6 @@ public class Swipe : MonoBehaviour
             timeInterval = touchTimeFinish - touchTimeStart;
             endPos = Input.GetTouch(0).position;
             direction = startPos - endPos;
-            GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
-            hasThrown = true;
-        }
-	}
-#endif
-
-
-#if UNITY_STANDALONE
-    void Update(){
-
-        currentPos = transform.position;
-        if (hasThrown == false && Input.GetMouseButtonDown(0)){
-            touchTimeStart = Time.time;
-            startPos = Input.mousePosition;
-        }
-
-        if (hasThrown == false && Input.GetMouseButtonUp(0)){
-            touchTimeFinish = Time.time;
-            timeInterval = touchTimeFinish - touchTimeStart;
-            endPos = Input.mousePosition;
-            direction = startPos - endPos;
-            GetComponent<Rigidbody2D>().gravityScale = 1;
             GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
             hasThrown = true;
             hasFreeze = false;
@@ -87,6 +66,53 @@ public class Swipe : MonoBehaviour
         if (hasFreeze != true && hasBounced != true && hasDied != true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
+
+        if (hasDied == true){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
+        }
+	}
+#endif
+
+
+#if UNITY_STANDALONE
+    void Update(){
+
+        currentPos = transform.position;
+        //Mousedown, starts the process of throwing the ball
+        if (hasThrown == false && Input.GetMouseButtonDown(0)){
+            Debug.Log("Mouse Down");
+            GetComponent<Rigidbody2D>().isKinematic = false;
+            touchTimeStart = Time.time;
+            startPos = Input.mousePosition;
+        }
+
+        //Mouseup, finishes the process
+        if (hasThrown == false && Input.GetMouseButtonUp(0)){
+            Debug.Log("Mouse Up");
+            touchTimeFinish = Time.time;
+            timeInterval = touchTimeFinish - touchTimeStart;
+            endPos = Input.mousePosition;
+            direction = startPos - endPos;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
+            GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
+            hasThrown = true;
+            hasFreeze = false;
+        }
+
+        //Keeps the ball frozen, this is probably obsolete
+        if (hasFreeze == true){
+            Debug.Log("Real position: " + currentPos);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().angularVelocity = 0;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteY;
+        }
+
+        //If the ball is fired it will turn white
+        if (hasFreeze != true && hasBounced != true && hasDied != true){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
+        }
+
         if (hasDied == true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
         }
@@ -119,20 +145,25 @@ public class Swipe : MonoBehaviour
             hasBounced = false;
         }
 
-        if(coll.gameObject.tag == "NormalBounce")
-        {
+        //Every bounce on normal surface changes the sprite to the stock White.
+        if(coll.gameObject.tag == "NormalBounce"){
             Debug.Log("ChangetoWhite!!!");
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
         
         if (hasThrown == true && coll.gameObject.tag == "PlusZone"){
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            Debug.Log("currentPos before hit: " + currentPos);
             transform.position = currentPos;
+            Debug.Log("currentPos after hit: " + currentPos);
             hasFreeze = true;
-           hasThrown = false;
+            hasThrown = false;
         }
 
         //Win!!!
         if (coll.gameObject.tag == "WinZone"){
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteG;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
             if (hasWon == false){
@@ -141,7 +172,6 @@ public class Swipe : MonoBehaviour
                 StartCoroutine(ChangeMap());
             }
         }
-
     }
 
     IEnumerator ChangeMap(){
@@ -150,8 +180,9 @@ public class Swipe : MonoBehaviour
     }
 
     IEnumerator Death(){
+        GetComponent<Rigidbody2D>().isKinematic = true;
         hasDied = true;
-        Debug.Log("Should wait here");
+        Debug.Log("Die");
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
