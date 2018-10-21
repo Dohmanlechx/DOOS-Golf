@@ -10,13 +10,6 @@ public class MainMenu : MonoBehaviour
     public bool isNewGame;
     public bool isChallenge;
     public bool isQuit;
-    public GameObject mainmenu;
-    public GameObject popup;
-
-    private void Start()
-    {
-        popup.SetActive(false);
-    }
 
     //TODO: Gör om siffrorna för scenerna till ett index så att man senare kan ladda in sin senaste bana.
     private void OnMouseUp()
@@ -27,9 +20,7 @@ public class MainMenu : MonoBehaviour
         }
         if (isNewGame)
         {
-            // TODO OLIVER: När rutan är framme ska backgrunden vara lite mörkare
-            mainmenu.SetActive(false);
-            popup.SetActive(true);
+            SceneManager.LoadScene("Choose Players");
         }
         if (isChallenge)
         {
@@ -39,10 +30,5 @@ public class MainMenu : MonoBehaviour
         {
             Application.Quit();
         }
-    }
-    // Update is called once per frame
-    private void Update()
-    {
-
     }
 }
