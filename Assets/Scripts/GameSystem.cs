@@ -63,7 +63,7 @@ public class GameSystem : MonoBehaviour
             shotCount = 8;
         }
         Debug.Log("Final result:" + shotCount);
-        LoadNextScene(shotCount);
+        FinalCheck(shotCount);
     }
 
     // Goal trigger, but if the ball is moving too fast, it won't trigger
@@ -85,39 +85,45 @@ public class GameSystem : MonoBehaviour
         theBall.DestroyBall();
         particles.Play();
         yield return new WaitForSeconds(3f);
-        LoadNextScene(shotCount);
+        FinalCheck(shotCount);
     }
 
-    public void LoadNextScene(int finalShotCount)
+    public void FinalCheck(int finalShotCount)
     {
         if (ChoosePlayers.GetAmountPlayers() == 1)
         {
-            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNextScene(finalShotCount, 1, true);
         }
         else if (ChoosePlayers.GetAmountPlayers() > 1 && Scores.GetWhoseTurn() == 1)
         {
-            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
-            scores.SetWhoseTurn(2);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadNextScene(finalShotCount, 2, false);
         }
         else if (ChoosePlayers.GetAmountPlayers() > 2 && Scores.GetWhoseTurn() == 2)
         {
-            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
-            scores.SetWhoseTurn(3);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadNextScene(finalShotCount, 3, false);
         }
         else if (ChoosePlayers.GetAmountPlayers() > 3 && Scores.GetWhoseTurn() == 3)
         {
-            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
-            scores.SetWhoseTurn(4);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadNextScene(finalShotCount, 4, false);
         }
         else
         {
-            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
-            scores.SetWhoseTurn(1);
+            LoadNextScene(finalShotCount, 1, true);
+        }
+    }
+
+    private void LoadNextScene(int finalShotCount, int player, bool next)
+    {
+        scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+        scores.SetWhoseTurn(player);
+
+        if (next)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
