@@ -52,7 +52,7 @@ public class GameSystem : MonoBehaviour
     // Executes when the player had swung his 7th swing. If no goal, it counts as 8 shots
     public IEnumerator TooManyShots(int shotCount)
     {
-        //shotCountText.color = Color.red;
+        tmController.MakeRed();
         yield return new WaitUntil(() => theClub.ongoingShoot == false);
         if (goalAt7thSwing)
         {
