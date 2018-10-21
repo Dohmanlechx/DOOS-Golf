@@ -16,11 +16,11 @@ public class GameSystem : MonoBehaviour
     // Private variables
     private AudioSource audioSource;
     [SerializeField] List<AudioClip> sounds;
-    //private static int currentPlayer = 1;
     private static int shotCount;
     private bool goalAt7thSwing;
     private int courseIndex;
 
+    // Getter
     public int GetShotCount() { return shotCount; }
     public int GetCourseIndex() { return courseIndex; }
 

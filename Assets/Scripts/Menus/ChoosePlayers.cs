@@ -48,30 +48,4 @@ public class ChoosePlayers : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
         }
     }
-
-    /*
-    private void OnePlayer()
-    {
-        amountPlayers = 1;
-        SceneManager.LoadScene("Course 1");
-    }
-
-    private void TwoPlayers()
-    {
-        amountPlayers = 2;
-        SceneManager.LoadScene("Course 1");
-    }
-
-    private void ThreePlayers()
-    {
-        amountPlayers = 3;
-        SceneManager.LoadScene("Course 1");
-    }
-
-    private void FourPlayers()
-    {
-        amountPlayers = 4;
-        SceneManager.LoadScene("Course 1");
-    }
-    */
 }

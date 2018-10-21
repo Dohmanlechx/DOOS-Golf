@@ -60,6 +60,7 @@ public class ScoreBoard : MonoBehaviour
         {
             for (int i = 1; i <= amountPlayers; i++)
             {
+                // Temporary empty List where it gets overwritten by an existing one, see switch/case statement
                 List<TextMeshPro> thisPlayerTextMeshs = new List<TextMeshPro>();
 
                 switch (i)
@@ -77,9 +78,10 @@ public class ScoreBoard : MonoBehaviour
                         thisPlayerTextMeshs = player4TextMeshs;
                         break;
                 }
+                // Updating total shots in scoreboard
+                thisPlayerTextMeshs[thisPlayerTextMeshs.Count - 1].SetText(scores.GetTotalShotsCount(i).ToString());
 
-                thisPlayerTextMeshs[thisPlayerTextMeshs.Count - 1].SetText(scores.GetTotalShotsCount(i).ToString()); // Updating total shots in scoreboard
-
+                // Updatering scores
                 for (int j = 1; j <= thisPlayerTextMeshs.Count - 2; j++)
                 {
                     int[] myScores = scores.GetScores(i);
@@ -94,9 +96,9 @@ public class ScoreBoard : MonoBehaviour
                     }
                 }
                 // Telling to players that those courses don't exist yet (warning for hard-coding)
-                for (int l = 6; l <= 18; l++)
+                for (int k = 6; k <= 18; k++)
                 {
-                    thisPlayerTextMeshs[l].SetText("x");
+                    thisPlayerTextMeshs[k].SetText("x");
                 }
             }
 

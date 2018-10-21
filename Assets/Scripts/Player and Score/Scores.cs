@@ -44,30 +44,6 @@ public class Scores : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // The first 1 contains name, 2-19 are for holes and 20 is for total
-        player1Scores = new int[20];
-        player2Scores = new int[20];
-        player3Scores = new int[20];
-        player4Scores = new int[20];
-    }
-
-    private void Update()
-    {
-        // To make sure to always have connection with GameSystem
-        if (GameObject.Find("Game System") != null)
-        {
-            gameSystem = FindObjectOfType<GameSystem>();
-        }
-    }
-
-    // Needing this code to let GameSystem make instance of this gameobject
-    public void NeverMind()
-    {
-        // Nothing :)
-    }
-
     // Getters
     public static int GetWhoseTurn() { return whoseTurn; }
 
@@ -113,5 +89,29 @@ public class Scores : MonoBehaviour
     public void SetWhoseTurn(int playerIndex)
     {
         whoseTurn = playerIndex;
+    }
+
+    private void Start()
+    {
+        // The first 1 contains name, 2-19 are for holes and 20 is for total
+        player1Scores = new int[20];
+        player2Scores = new int[20];
+        player3Scores = new int[20];
+        player4Scores = new int[20];
+    }
+
+    private void Update()
+    {
+        // To make sure to always have connection with GameSystem
+        if (GameObject.Find("Game System") != null)
+        {
+            gameSystem = FindObjectOfType<GameSystem>();
+        }
+    }
+
+    // Needing this code to let GameSystem make instance of this gameobject
+    public void NeverMind()
+    {
+        // Nothing :)
     }
 }

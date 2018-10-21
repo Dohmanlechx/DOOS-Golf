@@ -497,7 +497,7 @@ MonoBehaviour:
   is1: 0
   is2: 0
   is3: 0
-  is4: 0
+  is4: 1
   isBack: 0
 --- !u!4 &607256587
 Transform:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is1: 0
   is2: 0
-  is3: 0
+  is3: 1
   is4: 0
   isBack: 0
 --- !u!4 &802946734
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is1: 0
-  is2: 0
+  is2: 1
   is3: 0
   is4: 0
   isBack: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08d89f3c2f32ef469f11a365d2b69b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is1: 0
+  is1: 1
   is2: 0
   is3: 0
   is4: 0
@@ -852,7 +852,7 @@ MonoBehaviour:
   is2: 0
   is3: 0
   is4: 0
-  isBack: 0
+  isBack: 1
 --- !u!4 &1552663967
 Transform:
   m_ObjectHideFlags: 0
