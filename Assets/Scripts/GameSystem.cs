@@ -70,7 +70,7 @@ public class GameSystem : MonoBehaviour
     {
         if (theBall.rb.velocity.magnitude < 3.75f)
         {
-            scores.SetScore(courseIndex, currentPlayer, shotCount);
+            //scores.SetScore(courseIndex, currentPlayer, shotCount);
             StartCoroutine(Goal());
         }
     }
