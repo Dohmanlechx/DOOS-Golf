@@ -14,6 +14,7 @@ public class Scores : MonoBehaviour
     // Private variables
     private static Scores _instance;
     private static int[] player1Scores, player2Scores, player3Scores, player4Scores;
+    private static int whoseTurn = 1;
     private int totalShotsCount = 0;
 
     // Singleton
@@ -68,6 +69,8 @@ public class Scores : MonoBehaviour
     }
 
     // Getters
+    public static int GetWhoseTurn() { return whoseTurn; }
+
     public int[] GetScores(int playerIndex)
     {
         int[] temp = new int[20];
@@ -105,5 +108,10 @@ public class Scores : MonoBehaviour
     public void SetScore(int courseIndex, int playerIndex, int shotCount)
     {
         GetScores(playerIndex)[courseIndex] = shotCount;
+    }
+
+    public void SetWhoseTurn(int playerIndex)
+    {
+        whoseTurn = playerIndex;
     }
 }

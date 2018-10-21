@@ -61,7 +61,7 @@ public class ScoreBoard : MonoBehaviour
     {
         if (scores != null)
         {
-            for (int i = 1; i <= listOfAllPlayers.Count; i++)
+            for (int i = 1; i <= amountPlayers; i++)
             {
                 for (int j = 1; j <= thisPlayerTextMeshs.Count - 2; j++)
                 {
@@ -76,15 +76,12 @@ public class ScoreBoard : MonoBehaviour
                         thisPlayerTextMeshs[j].SetText(myScores[j].ToString()); // Played courses
                     }
                 }
-
-                Debug.Log("listOfAllPlayer.Count: " + listOfAllPlayers.Count);
-                //Debug.Log("totalshotcount: " + scores.GetTotalShotsCount(1));
+                
                 for (int k = 1; k <= listOfAllPlayers.Count; k++)
                 {
                     Debug.Log("Detta ska bara köras en gång!!!");
                     thisPlayerTextMeshs[19].SetText(scores.GetTotalShotsCount(k).ToString()); // Updating total shots in scoreboard
                 }
-
                 // Telling to players that those courses don't exist yet (warning for hard-coding)
                 for (int l = 6; l <= 18; l++)
                 {

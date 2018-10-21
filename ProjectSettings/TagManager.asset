@@ -13,6 +13,8 @@ TagManager:
   - WinZone
   - PlusZone
   - Restart
+  - ShotCount
+  - WhoseTurn
   layers:
   - Default
   - TransparentFX

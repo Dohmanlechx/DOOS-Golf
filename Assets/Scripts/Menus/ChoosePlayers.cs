@@ -20,6 +20,7 @@ public class ChoosePlayers : MonoBehaviour
     // Private variables
     private static int amountPlayers;
 
+    // Setter
     public static int GetAmountPlayers() { return amountPlayers; }
 
     private void Start()

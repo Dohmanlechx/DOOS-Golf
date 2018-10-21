@@ -11,12 +11,12 @@ public class GameSystem : MonoBehaviour
     public ParticleSystem particles;
     public Ball theBall;
     public Club theClub;
-    public TextMeshProUGUI shotCountText;
+    public TextMeshController tmController;
 
     // Private variables
     private AudioSource audioSource;
     [SerializeField] List<AudioClip> sounds;
-    private static int currentPlayer = 1;
+    //private static int currentPlayer = 1;
     private static int shotCount;
     private bool goalAt7thSwing;
     private int courseIndex;
@@ -31,7 +31,7 @@ public class GameSystem : MonoBehaviour
         particles = FindObjectOfType<ParticleSystem>();
         theBall = FindObjectOfType<Ball>();
         theClub = FindObjectOfType<Club>();
-        shotCountText = FindObjectOfType<TextMeshProUGUI>();
+        tmController = FindObjectOfType<TextMeshController>();
 
         audioSource = GetComponent<AudioSource>();
         shotCount = 0;
@@ -42,7 +42,8 @@ public class GameSystem : MonoBehaviour
     public void AddShot()
     {
         shotCount++;
-        shotCountText.SetText(shotCount.ToString());
+
+        tmController.UpdateText(shotCount);
 
         if (shotCount >= 7)
             StartCoroutine(TooManyShots(shotCount));
@@ -51,7 +52,7 @@ public class GameSystem : MonoBehaviour
     // Executes when the player had swung his 7th swing. If no goal, it counts as 8 shots
     public IEnumerator TooManyShots(int shotCount)
     {
-        shotCountText.color = Color.red;
+        //shotCountText.color = Color.red;
         yield return new WaitUntil(() => theClub.ongoingShoot == false);
         if (goalAt7thSwing)
         {
@@ -89,7 +90,34 @@ public class GameSystem : MonoBehaviour
 
     public void LoadNextScene(int finalShotCount)
     {
-        scores.SetScore(courseIndex, currentPlayer, finalShotCount);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (ChoosePlayers.GetAmountPlayers() == 1)
+        {
+            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (ChoosePlayers.GetAmountPlayers() > 1 && Scores.GetWhoseTurn() == 1)
+        {
+            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+            scores.SetWhoseTurn(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (ChoosePlayers.GetAmountPlayers() > 2 && Scores.GetWhoseTurn() == 2)
+        {
+            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+            scores.SetWhoseTurn(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (ChoosePlayers.GetAmountPlayers() > 3 && Scores.GetWhoseTurn() == 3)
+        {
+            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+            scores.SetWhoseTurn(4);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+            scores.SetWhoseTurn(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
