@@ -95,10 +95,10 @@ public class Scores : MonoBehaviour
     public int GetTotalShotsCount(int playerIndex)
     {
         totalShotsCount = 0;
-        Debug.Log("Scores.cs: GetScores(playerIndex).Length: " + GetScores(playerIndex).Length);
+        Debug.Log("Scores.cs: GetScores(" + playerIndex + ").Length: " + GetScores(playerIndex).Length);
         for (int i = 1; i < GetScores(playerIndex).Length; i++)
         {
-            Debug.Log("Scores.cs: GetScores(playerIndex): " + GetScores(playerIndex)[i]);
+            Debug.Log("Scores.cs: GetScores(" + playerIndex + "): " + GetScores(playerIndex)[i]);
             totalShotsCount += GetScores(playerIndex)[i];
         }
         return totalShotsCount;

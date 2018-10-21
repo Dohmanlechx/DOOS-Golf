@@ -4212,7 +4212,7 @@ MonoBehaviour:
   particles: {fileID: 0}
   theBall: {fileID: 0}
   theClub: {fileID: 0}
-  shotCountText: {fileID: 0}
+  tmController: {fileID: 0}
   sounds:
   - {fileID: 8300000, guid: 2ea7cd8b8b183f842a40a3a356e05f9e, type: 3}
 --- !u!4 &442114883
