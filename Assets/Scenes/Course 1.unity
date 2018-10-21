@@ -231,6 +231,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114208782817907926, guid: f7de9ace3f476b14d94812abe57535b4,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208782817907926, guid: f7de9ace3f476b14d94812abe57535b4,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114623858077056250, guid: f7de9ace3f476b14d94812abe57535b4,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -423,6 +433,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fe1be0e0593154390bcd9271468574, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &577175432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114208782817907926, guid: f7de9ace3f476b14d94812abe57535b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 347772030}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1001 &664662534
 Prefab:
   m_ObjectHideFlags: 0
@@ -718,12 +734,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
         type: 2}
-      propertyPath: particles
+      propertyPath: shotCountText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 577175432}
+    - target: {fileID: 114705816448651830, guid: 675c9a5c75a2eb74cabedaa3bbb190eb,
+        type: 2}
+      propertyPath: whoseTurnText
+      value: 
+      objectReference: {fileID: 1934548480}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675c9a5c75a2eb74cabedaa3bbb190eb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1934548480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114623858077056250, guid: f7de9ace3f476b14d94812abe57535b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 347772030}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1001 &1961961544
 Prefab:
   m_ObjectHideFlags: 0
@@ -763,6 +790,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1194901591300786, guid: 1c372a54b670217478721413512c6b2c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114859384895392428, guid: 1c372a54b670217478721413512c6b2c,
+        type: 2}
+      propertyPath: shotCountText
+      value: 
+      objectReference: {fileID: 577175432}
+    - target: {fileID: 114859384895392428, guid: 1c372a54b670217478721413512c6b2c,
+        type: 2}
+      propertyPath: whoseTurnText
+      value: 
+      objectReference: {fileID: 1934548480}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c372a54b670217478721413512c6b2c, type: 2}
   m_IsPrefabAsset: 0

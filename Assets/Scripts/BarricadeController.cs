@@ -75,6 +75,6 @@ public class BarricadeController : MonoBehaviour
     IEnumerator WaitThenLoadNextScene()
     {
         yield return new WaitForSeconds(2f);
-        gameSystem.LoadNextScene(8); // 8 swings
+        gameSystem.FinalCheck(8); // 8 swings
     }
 }
