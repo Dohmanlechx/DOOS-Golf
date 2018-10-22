@@ -55,7 +55,8 @@ public class ButtonScript : MonoBehaviour
 
     private void LoadScoreboardScene()
     {
-        ScoreBoard.SetLastCourseIndex(SceneManager.GetActiveScene().buildIndex); // Back to last course
+        PlayerPrefs.SetInt("lastPlayedCourse", SceneManager.GetActiveScene().buildIndex);
+        ScoreBoard.SetLastCourseIndex(PlayerPrefs.GetInt("lastPlayedCourse")); // Back to last course
         SceneManager.LoadScene("Scoreboard");
     }
 }

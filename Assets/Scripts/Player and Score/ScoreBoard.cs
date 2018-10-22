@@ -16,7 +16,6 @@ public class ScoreBoard : MonoBehaviour
     public List<TextMeshPro> player3TextMeshs = new List<TextMeshPro>();
     public List<TextMeshPro> player4TextMeshs = new List<TextMeshPro>();
     public ArrayList listOfAllPlayers = new ArrayList();
-    //public List<TextMeshPro> listOfAllPlayers = new List<TextMeshPro>();
     public bool isContinue;
 
     // Private variables
@@ -85,7 +84,6 @@ public class ScoreBoard : MonoBehaviour
                 for (int j = 1; j <= thisPlayerTextMeshs.Count - 2; j++)
                 {
                     int[] myScores = scores.GetScores(i);
-                    //Debug.Log("ScoreBoard.cs: myScores[j]: " + myScores[j]);
                     if (myScores[j] == 0)
                     {
                         thisPlayerTextMeshs[j].SetText(""); // Unplayed courses

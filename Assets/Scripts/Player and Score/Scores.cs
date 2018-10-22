@@ -100,10 +100,8 @@ public class Scores : MonoBehaviour
     public int GetTotalShotsCount(int playerIndex)
     {
         totalShotsCount = 0;
-        //Debug.Log("Scores.cs: GetScores(" + playerIndex + ").Length: " + GetScores(playerIndex).Length);
         for (int i = 1; i < GetScores(playerIndex).Length; i++)
         {
-            //Debug.Log("Scores.cs: GetScores(" + playerIndex + "): " + GetScores(playerIndex)[i]);
             totalShotsCount += GetScores(playerIndex)[i];
         }
         return totalShotsCount;
@@ -115,7 +113,7 @@ public class Scores : MonoBehaviour
         GetScores(playerIndex)[courseIndex] = shotCount;
     }
 
-    public void SetWhoseTurn(int playerIndex)
+    public static void SetWhoseTurn(int playerIndex)
     {
         whoseTurn = playerIndex;
         PlayerPrefs.SetInt("whoseTurn", whoseTurn);
@@ -146,9 +144,11 @@ public class Scores : MonoBehaviour
         SetScoresIntoPrefs(player2Scores, 2);
         SetScoresIntoPrefs(player3Scores, 3);
         SetScoresIntoPrefs(player4Scores, 4);
+
+        SetWhoseTurn(1);
     }
 
-    public void TestMetod(int amountPlayers)
+    public void DetermineAmountPlayersAndSetScoresIntoPrefs(int amountPlayers)
     {
         switch (amountPlayers)
         {

@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         if (isContinue)
         {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("LastPlayed", lastCourseIndex));
+            SceneManager.LoadScene(PlayerPrefs.GetInt("lastPlayedCourse"));
         }
         if (isNewGame)
         {
