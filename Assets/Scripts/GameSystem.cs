@@ -18,7 +18,7 @@ public class GameSystem : MonoBehaviour
     [SerializeField] List<AudioClip> sounds;
     private static int shotCount;
     private bool goalAt7thSwing;
-    private int courseIndex;
+    private static int courseIndex;
 
     // Getter
     public int GetShotCount() { return shotCount; }
@@ -37,6 +37,10 @@ public class GameSystem : MonoBehaviour
         shotCount = 0;
         goalAt7thSwing = false;
         courseIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // So player can continue from this course between sessions
+        PlayerPrefs.SetInt("LastPlayed", courseIndex);
+        scores.SaveAllScores();
     }
 
     public void AddShot()

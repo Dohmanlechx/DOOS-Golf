@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Swipe : MonoBehaviour
 {
-
     public SpriteRenderer spriteRenderer;
     public Sprite spriteW, spriteR, spriteG, spriteB, spriteY;
 
@@ -26,7 +25,8 @@ public class Swipe : MonoBehaviour
     bool hasFreeze = false;
     bool hasDied = false;
 
-    void Start(){
+    void Start()
+    {
         defaultPos = transform.position;
         Debug.Log(defaultPos);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
@@ -36,17 +36,20 @@ public class Swipe : MonoBehaviour
     //PHONE!
     // Update is called once per frame 
 #if UNITY_ANDROID
-    void Update () {
-	    
+    void Update()
+    {
+
         currentPos = transform.position;
         //Touching the screen
-        if(hasThrown == false && Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began){
+        if (hasThrown == false && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
             touchTimeStart = Time.time;
             startPos = Input.GetTouch(0).position;
         }
 
         //Releasing
-        if(hasThrown == false && Input.touchCount > 0 && Input.GetTouch(0).phase  == TouchPhase.Ended){
+        if (hasThrown == false && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
             touchTimeFinish = Time.time;
             timeInterval = touchTimeFinish - touchTimeStart;
             endPos = Input.GetTouch(0).position;
@@ -56,21 +59,24 @@ public class Swipe : MonoBehaviour
             hasFreeze = false;
         }
 
-        if (hasFreeze == true){
+        if (hasFreeze == true)
+        {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
             GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteY;
         }
 
-        if (hasFreeze != true && hasBounced != true && hasDied != true){
+        if (hasFreeze != true && hasBounced != true && hasDied != true)
+        {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
 
-        if (hasDied == true){
+        if (hasDied == true)
+        {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
         }
-	}
+    }
 #endif
 
 
@@ -133,19 +139,23 @@ public class Swipe : MonoBehaviour
         }
     }*/
 
-    void OnCollisionEnter2D(Collision2D coll){
+    void OnCollisionEnter2D(Collision2D coll)
+    {
         //Plays collision sound when colliding with anything
-        if (hasThrown == true){
+        if (hasThrown == true)
+        {
             playCollision();
         }
 
         //Resets playerposition
-        if (hasThrown == true && coll.gameObject.tag == "DangerZone"){
+        if (hasThrown == true && coll.gameObject.tag == "DangerZone")
+        {
             StartCoroutine(Death());
         }
 
         //Gives the player a big boost to his bounce
-        if (hasThrown == true && coll.gameObject.tag == "Forcebouncer"){
+        if (hasThrown == true && coll.gameObject.tag == "Forcebouncer")
+        {
             oldSpeed = GetComponent<Rigidbody2D>().velocity;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * hmmSpeed, ForceMode2D.Impulse);
             newSpeed = GetComponent<Rigidbody2D>().velocity;
@@ -154,19 +164,22 @@ public class Swipe : MonoBehaviour
         }
 
         //After ForceBouncer has been in effect, this is the first collision that happens thus will reset the speed and the sprite
-        if (hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce"){
+        if (hasThrown == true && hasBounced == true && coll.gameObject.tag == "NormalBounce")
+        {
             GetComponent<Rigidbody2D>().AddForce(-GetComponent<Rigidbody2D>().velocity / hmmSpeed);
             hasBounced = false;
         }
 
         //Every bounce on normal surface changes the sprite to the stock White.
-        if(coll.gameObject.tag == "NormalBounce"){
+        if (coll.gameObject.tag == "NormalBounce")
+        {
             Debug.Log("ChangetoWhite!!!");
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
-        
+
         //Lets the player shoot once again and also sticks the ball in place.
-        if (hasThrown == true && coll.gameObject.tag == "PlusZone"){
+        if (hasThrown == true && coll.gameObject.tag == "PlusZone")
+        {
             GetComponent<Rigidbody2D>().isKinematic = true;
             Debug.Log("currentPos before hit: " + currentPos);
             transform.position = currentPos;
@@ -176,12 +189,14 @@ public class Swipe : MonoBehaviour
         }
 
         //Win!!!
-        if (coll.gameObject.tag == "WinZone"){
+        if (coll.gameObject.tag == "WinZone")
+        {
             GetComponent<Rigidbody2D>().isKinematic = true;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteG;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
-            if (hasWon == false){
+            if (hasWon == false)
+            {
                 hasWon = true;
                 audioSource.PlayOneShot(win, 2f);
                 StartCoroutine(ChangeMap());
@@ -189,12 +204,14 @@ public class Swipe : MonoBehaviour
         }
     }
 
-    IEnumerator ChangeMap(){
+    IEnumerator ChangeMap()
+    {
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    IEnumerator Death(){
+    IEnumerator Death()
+    {
         GetComponent<Rigidbody2D>().isKinematic = true;
         hasDied = true;
         Debug.Log("Die");
@@ -210,8 +227,10 @@ public class Swipe : MonoBehaviour
         hasThrown = false;
     }
 
-    private void playCollision(){
-        if (hasWon == false){
+    private void playCollision()
+    {
+        if (hasWon == false)
+        {
             int randomSound = Random.Range(0, 3);
             audioSource.PlayOneShot(sounds[randomSound], 1f);
         }

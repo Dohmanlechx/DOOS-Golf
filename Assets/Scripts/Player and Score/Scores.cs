@@ -109,6 +109,11 @@ public class Scores : MonoBehaviour
         }
     }
 
+    public void SaveAllScores()
+    {
+
+    }
+
     // Needing this code to let GameSystem make instance of this gameobject
     public void NeverMind()
     {

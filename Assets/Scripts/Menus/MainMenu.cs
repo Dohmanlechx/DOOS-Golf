@@ -11,12 +11,15 @@ public class MainMenu : MonoBehaviour
     public bool isChallenge;
     public bool isQuit;
 
+    // Private variables
+    private static int lastCourseIndex;
+
     //TODO: Gör om siffrorna för scenerna till ett index så att man senare kan ladda in sin senaste bana.
     private void OnMouseUp()
     {
         if (isContinue)
         {
-            SceneManager.LoadScene("Daaaavid, here continue should be yes?");
+            SceneManager.LoadScene(PlayerPrefs.GetInt("LastPlayed", lastCourseIndex));
         }
         if (isNewGame)
         {
