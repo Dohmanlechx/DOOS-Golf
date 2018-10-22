@@ -27,7 +27,7 @@ public class ScoreBoard : MonoBehaviour
     {
         gameSystem = FindObjectOfType<GameSystem>();
         scores = FindObjectOfType<Scores>();
-        amountPlayers = ChoosePlayers.GetAmountPlayers();
+        amountPlayers = PlayerPrefs.GetInt("amountPlayers");
 
         switch (amountPlayers)
         {
@@ -50,7 +50,7 @@ public class ScoreBoard : MonoBehaviour
                 listOfAllPlayers.Add(player4TextMeshs);
                 break;
         }
-
+        Debug.Log("TEST: " + scores.GetScores(1)[1] + " " + scores.GetScores(1)[2]);
         UpdateScoreBoard();
     }
 
@@ -85,7 +85,7 @@ public class ScoreBoard : MonoBehaviour
                 for (int j = 1; j <= thisPlayerTextMeshs.Count - 2; j++)
                 {
                     int[] myScores = scores.GetScores(i);
-                    Debug.Log("ScoreBoard.cs: myScores[j]: " + myScores[j]);
+                    //Debug.Log("ScoreBoard.cs: myScores[j]: " + myScores[j]);
                     if (myScores[j] == 0)
                     {
                         thisPlayerTextMeshs[j].SetText(""); // Unplayed courses

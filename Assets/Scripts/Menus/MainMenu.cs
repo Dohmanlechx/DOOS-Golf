@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
         }
         if (isNewGame)
         {
+            Scores.NewGame();
             SceneManager.LoadScene("Choose Players");
         }
         if (isChallenge)

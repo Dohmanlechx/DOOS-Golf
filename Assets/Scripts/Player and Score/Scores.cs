@@ -42,6 +42,12 @@ public class Scores : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        if (PlayerPrefs.HasKey("Scores"))
+        {
+            player1Scores = GetStoredScores();
+            Debug.Log("AWAKE " + player1Scores[1] + " " + player1Scores[2]);
+        }
     }
 
     // Getters
@@ -71,10 +77,10 @@ public class Scores : MonoBehaviour
     public int GetTotalShotsCount(int playerIndex)
     {
         totalShotsCount = 0;
-        Debug.Log("Scores.cs: GetScores(" + playerIndex + ").Length: " + GetScores(playerIndex).Length);
+        //Debug.Log("Scores.cs: GetScores(" + playerIndex + ").Length: " + GetScores(playerIndex).Length);
         for (int i = 1; i < GetScores(playerIndex).Length; i++)
         {
-            Debug.Log("Scores.cs: GetScores(" + playerIndex + "): " + GetScores(playerIndex)[i]);
+            //Debug.Log("Scores.cs: GetScores(" + playerIndex + "): " + GetScores(playerIndex)[i]);
             totalShotsCount += GetScores(playerIndex)[i];
         }
         return totalShotsCount;
@@ -94,7 +100,11 @@ public class Scores : MonoBehaviour
     private void Start()
     {
         // The first 1 contains name, 2-19 are for holes and 20 is for total
-        player1Scores = new int[20];
+        if (!PlayerPrefs.HasKey("Scores"))
+        {
+            player1Scores = new int[20];
+        }
+
         player2Scores = new int[20];
         player3Scores = new int[20];
         player4Scores = new int[20];
@@ -109,9 +119,52 @@ public class Scores : MonoBehaviour
         }
     }
 
-    public void SaveAllScores()
+    public static void NewGame()
     {
+        player1Scores = new int[20];
+        player2Scores = new int[20];
+        player3Scores = new int[20];
+        player4Scores = new int[20];
 
+        SetScoresIntoPrefs(player1Scores);
+    }
+
+    public void TestMetod()
+    {
+        SetScoresIntoPrefs(player1Scores);
+    }
+
+    // Use this to SET Integer array
+    public static void SetScoresIntoPrefs(int[] scores)
+    {
+        PlayerPrefs.SetString("Scores", GetSerializedString(scores));
+    }
+
+    // Use this to GET Integer array
+    public static int[] GetStoredScores()
+    {
+        string[] data = PlayerPrefs.GetString("Scores", "0").Split('|');
+        int[] val = new int[data.Length];
+        int score;
+        for (int i = 0; i < val.Length; i++)
+        {
+            val[i] = int.TryParse(data[i], out score) ? score : 0;
+        }
+        Debug.Log("val: " + val);
+        return val;
+    }
+
+    private static string GetSerializedString(int[] data)
+    {
+        if (data.Length == 0) return string.Empty;
+
+        string result = data[0].ToString();
+        for (int i = 1; i < data.Length; i++)
+        {
+            result += ("|" + data[i]);
+        }
+        Debug.Log("result: " + result);
+        return result;
     }
 
     // Needing this code to let GameSystem make instance of this gameobject

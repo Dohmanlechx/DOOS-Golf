@@ -40,7 +40,7 @@ public class GameSystem : MonoBehaviour
 
         // So player can continue from this course between sessions
         PlayerPrefs.SetInt("LastPlayed", courseIndex);
-        scores.SaveAllScores();
+        //scores.SaveAllScores();
     }
 
     public void AddShot()
@@ -119,6 +119,7 @@ public class GameSystem : MonoBehaviour
     private void LoadNextScene(int finalShotCount, int player, bool next)
     {
         scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+        scores.TestMetod();
         scores.SetWhoseTurn(player);
 
         if (next)

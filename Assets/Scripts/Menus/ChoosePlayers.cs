@@ -26,21 +26,25 @@ public class ChoosePlayers : MonoBehaviour
         if (is1)
         {
             amountPlayers = 1;
+            PlayerPrefs.SetInt("amountPlayers", 1);
             SceneManager.LoadScene("Course 1");
         }
         if (is2)
         {
             amountPlayers = 2;
+            PlayerPrefs.SetInt("amountPlayers", 2);
             SceneManager.LoadScene("Course 1");
         }
         if (is3)
         {
             amountPlayers = 3;
+            PlayerPrefs.SetInt("amountPlayers", 3);
             SceneManager.LoadScene("Course 1");
         }
         if (is4)
         {
             amountPlayers = 4;
+            PlayerPrefs.SetInt("amountPlayers", 4);
             SceneManager.LoadScene("Course 1");
         }
         if (isBack)
