@@ -528,6 +528,11 @@ Prefab:
       propertyPath: theBall
       value: 
       objectReference: {fileID: 1958718205}
+    - target: {fileID: 114349257706631670, guid: 9ecde7b6358931846a8cff8c08f6d3fc,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f465b21bd3771407b9351ec63036d9e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ecde7b6358931846a8cff8c08f6d3fc, type: 2}
   m_IsPrefabAsset: 0

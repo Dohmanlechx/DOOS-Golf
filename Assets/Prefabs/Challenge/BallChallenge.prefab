@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50959970694011402}
   - component: {fileID: 114834721525571214}
   - component: {fileID: 82500219474920682}
+  - component: {fileID: 114163412539850160}
   m_Layer: 0
   m_Name: BallChallenge
   m_TagString: Untagged
@@ -174,6 +175,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114163412539850160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211849132062518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0aef45b399dc83448e798b7884949aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 18
 --- !u!114 &114834721525571214
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -36,7 +36,7 @@ public class Swipe : MonoBehaviour
     //PHONE!
     // Update is called once per frame 
 #if UNITY_ANDROID
-    void FixedUpdate () {
+    void Update () {
 	    
         currentPos = transform.position;
         //Touching the screen
@@ -93,10 +93,12 @@ public class Swipe : MonoBehaviour
             timeInterval = touchTimeFinish - touchTimeStart;
             endPos = Input.mousePosition;
             direction = startPos - endPos;
-            GetComponent<Rigidbody2D>().gravityScale = 1;
-            GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
-            hasThrown = true;
             hasFreeze = false;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
+
+            GetComponent<Rigidbody2D>().AddForce(-direction / timeInterval * throwForce);
+            Debug.Log("Force!!! " + GetComponent<Rigidbody2D>().velocity);
+            hasThrown = true;
         }
 
         //Keeps the ball frozen, this is probably obsolete
@@ -116,8 +118,20 @@ public class Swipe : MonoBehaviour
         if (hasDied == true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
         }
+        Debug.Log("Force!!! " + GetComponent<Rigidbody2D>().velocity);
     }
+
 #endif
+
+    /*void FixedUpdate()
+    {
+   
+        if (hasBounced == false && GetComponent<Rigidbody2D>().velocity.magnitude > maxSpeed)
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxSpeed;
+            Debug.Log("Correcting force " + GetComponent<Rigidbody2D>().velocity);
+        }
+    }*/
 
     void OnCollisionEnter2D(Collision2D coll){
         //Plays collision sound when colliding with anything
@@ -151,6 +165,7 @@ public class Swipe : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
         
+        //Lets the player shoot once again and also sticks the ball in place.
         if (hasThrown == true && coll.gameObject.tag == "PlusZone"){
             GetComponent<Rigidbody2D>().isKinematic = true;
             Debug.Log("currentPos before hit: " + currentPos);
