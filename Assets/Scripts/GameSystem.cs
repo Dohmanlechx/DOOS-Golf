@@ -40,7 +40,8 @@ public class GameSystem : MonoBehaviour
 
         // So player can continue from this course between sessions
         PlayerPrefs.SetInt("LastPlayed", courseIndex);
-        Debug.Log("AMOUNTPLAYER " + PlayerPrefs.GetInt("amountPlayers"));
+
+        Debug.Log("WHOSE TURN?? :" + PlayerPrefs.GetInt("whoseTurn") + " NOT PREF: " + Scores.GetWhoseTurn());
     }
 
     public void AddShot()
@@ -98,15 +99,15 @@ public class GameSystem : MonoBehaviour
         {
             LoadNextScene(finalShotCount, 1, true);
         }
-        else if (PlayerPrefs.GetInt("amountPlayers") > 1 && Scores.GetWhoseTurn() == 1)
+        else if (PlayerPrefs.GetInt("amountPlayers") > 1 && PlayerPrefs.GetInt("whoseTurn") == 1)
         {
             LoadNextScene(finalShotCount, 2, false);
         }
-        else if (PlayerPrefs.GetInt("amountPlayers") > 2 && Scores.GetWhoseTurn() == 2)
+        else if (PlayerPrefs.GetInt("amountPlayers") > 2 && PlayerPrefs.GetInt("whoseTurn") == 2)
         {
             LoadNextScene(finalShotCount, 3, false);
         }
-        else if (PlayerPrefs.GetInt("amountPlayers") > 3 && Scores.GetWhoseTurn() == 3)
+        else if (PlayerPrefs.GetInt("amountPlayers") > 3 && PlayerPrefs.GetInt("whoseTurn") == 3)
         {
             LoadNextScene(finalShotCount, 4, false);
         }

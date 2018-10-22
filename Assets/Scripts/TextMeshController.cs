@@ -11,7 +11,7 @@ public class TextMeshController : MonoBehaviour {
     public TextMeshProUGUI whoseTurnText;
 
     void Start () {
-        whoseTurnText.SetText("P" + Scores.GetWhoseTurn().ToString());
+        whoseTurnText.SetText("P" + PlayerPrefs.GetInt("whoseTurn").ToString());
     }
 
     public void UpdateText(int shotCount)

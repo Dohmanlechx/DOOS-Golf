@@ -43,6 +43,15 @@ public class Scores : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+        if (!PlayerPrefs.HasKey("whoseTurn"))
+        {
+            PlayerPrefs.SetInt("whoseTurn", whoseTurn);
+        }
+        else
+        {
+            whoseTurn = PlayerPrefs.GetInt("whoseTurn");
+        }
+
         if (PlayerPrefs.HasKey("player1Scores"))
         {
             player1Scores = GetStoredScores(1);
@@ -109,23 +118,12 @@ public class Scores : MonoBehaviour
     public void SetWhoseTurn(int playerIndex)
     {
         whoseTurn = playerIndex;
+        PlayerPrefs.SetInt("whoseTurn", whoseTurn);
     }
 
     private void Start()
     {
-        /*
 
-        // The first 1 contains name, 2-19 are for holes and 20 is for total
-        if (!PlayerPrefs.HasKey("player"))
-        {
-            player1Scores = new int[20];
-        }
-
-        player2Scores = new int[20];
-        player3Scores = new int[20];
-        player4Scores = new int[20];
-
-    */
     }
 
     private void Update()
