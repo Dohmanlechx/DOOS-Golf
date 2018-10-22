@@ -43,10 +43,24 @@ public class Scores : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        if (PlayerPrefs.HasKey("Scores"))
+        if (PlayerPrefs.HasKey("player1Scores"))
         {
-            player1Scores = GetStoredScores();
-            Debug.Log("AWAKE " + player1Scores[1] + " " + player1Scores[2]);
+            player1Scores = GetStoredScores(1);
+
+            if (PlayerPrefs.HasKey("player2Scores"))
+            {
+                player2Scores = GetStoredScores(2);
+
+                if (PlayerPrefs.HasKey("player3Scores"))
+                {
+                    player3Scores = GetStoredScores(3);
+
+                    if (PlayerPrefs.HasKey("player4Scores"))
+                    {
+                        player4Scores = GetStoredScores(4);
+                    }
+                }
+            }
         }
     }
 
@@ -99,8 +113,10 @@ public class Scores : MonoBehaviour
 
     private void Start()
     {
+        /*
+
         // The first 1 contains name, 2-19 are for holes and 20 is for total
-        if (!PlayerPrefs.HasKey("Scores"))
+        if (!PlayerPrefs.HasKey("player"))
         {
             player1Scores = new int[20];
         }
@@ -108,6 +124,8 @@ public class Scores : MonoBehaviour
         player2Scores = new int[20];
         player3Scores = new int[20];
         player4Scores = new int[20];
+
+    */
     }
 
     private void Update()
@@ -126,24 +144,82 @@ public class Scores : MonoBehaviour
         player3Scores = new int[20];
         player4Scores = new int[20];
 
-        SetScoresIntoPrefs(player1Scores);
+        SetScoresIntoPrefs(player1Scores, 1);
+        SetScoresIntoPrefs(player2Scores, 2);
+        SetScoresIntoPrefs(player3Scores, 3);
+        SetScoresIntoPrefs(player4Scores, 4);
     }
 
-    public void TestMetod()
+    public void TestMetod(int amountPlayers)
     {
-        SetScoresIntoPrefs(player1Scores);
+        switch (amountPlayers)
+        {
+            case 1:
+                SetScoresIntoPrefs(player1Scores, 1);
+                break;
+            case 2:
+                SetScoresIntoPrefs(player1Scores, 1);
+                SetScoresIntoPrefs(player2Scores, 2);
+                break;
+            case 3:
+                SetScoresIntoPrefs(player1Scores, 1);
+                SetScoresIntoPrefs(player2Scores, 2);
+                SetScoresIntoPrefs(player3Scores, 3);
+                break;
+            case 4:
+                SetScoresIntoPrefs(player1Scores, 1);
+                SetScoresIntoPrefs(player2Scores, 2);
+                SetScoresIntoPrefs(player3Scores, 3);
+                SetScoresIntoPrefs(player4Scores, 4);
+                break;
+            default:
+                SetScoresIntoPrefs(player1Scores, 1);
+                break;
+        }
     }
 
     // Use this to SET Integer array
-    public static void SetScoresIntoPrefs(int[] scores)
+    public static void SetScoresIntoPrefs(int[] scores, int playerIndex)
     {
-        PlayerPrefs.SetString("Scores", GetSerializedString(scores));
+        switch (playerIndex)
+        {
+            case 1:
+                PlayerPrefs.SetString("player1Scores", GetSerializedString(scores));
+                break;
+            case 2:
+                PlayerPrefs.SetString("player2Scores", GetSerializedString(scores));
+                break;
+            case 3:
+                PlayerPrefs.SetString("player3Scores", GetSerializedString(scores));
+                break;
+            case 4:
+                PlayerPrefs.SetString("player4Scores", GetSerializedString(scores));
+                break;
+        }
     }
 
     // Use this to GET Integer array
-    public static int[] GetStoredScores()
+    public static int[] GetStoredScores(int playerIndex)
     {
-        string[] data = PlayerPrefs.GetString("Scores", "0").Split('|');
+        string thisPlayerScores = "";
+
+        switch (playerIndex)
+        {
+            case 1:
+                thisPlayerScores = "player1Scores";
+                break;
+            case 2:
+                thisPlayerScores = "player2Scores";
+                break;
+            case 3:
+                thisPlayerScores = "player3Scores";
+                break;
+            case 4:
+                thisPlayerScores = "player4Scores";
+                break;
+        }
+
+        string[] data = PlayerPrefs.GetString(thisPlayerScores, "0").Split('|');
         int[] val = new int[data.Length];
         int score;
         for (int i = 0; i < val.Length; i++)

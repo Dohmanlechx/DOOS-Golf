@@ -50,7 +50,7 @@ public class ScoreBoard : MonoBehaviour
                 listOfAllPlayers.Add(player4TextMeshs);
                 break;
         }
-        Debug.Log("TEST: " + scores.GetScores(1)[1] + " " + scores.GetScores(1)[2]);
+
         UpdateScoreBoard();
     }
 
