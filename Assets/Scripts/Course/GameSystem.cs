@@ -20,10 +20,11 @@ public class GameSystem : MonoBehaviour
     private bool goalAt7thSwing;
     private static int courseIndex;
 
-    // Getter
+    // Getters
     public int GetShotCount() { return shotCount; }
     public int GetCourseIndex() { return courseIndex; }
 
+    // --- START ---
     private void Start()
     {
         Scores.Instance.NeverMind();
@@ -39,9 +40,22 @@ public class GameSystem : MonoBehaviour
         courseIndex = SceneManager.GetActiveScene().buildIndex;
 
         // So player can continue from this course between sessions
-        PlayerPrefs.SetInt("LastPlayed", courseIndex);
+        if (SceneManager.GetActiveScene().name != "Scoreboard")
+            PlayerPrefs.SetInt("lastPlayedCourse", courseIndex);
     }
 
+    // --- UPDATE ---
+    private void Update()
+    {
+        // PC Escape & Android Back Button
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+            return;
+        }
+    }
+
+    // --- METHODS ---
     public void AddShot()
     {
         shotCount++;
@@ -91,6 +105,7 @@ public class GameSystem : MonoBehaviour
         FinalCheck(shotCount);
     }
 
+    // This method checks if there are more players who haven't played the course yet
     public void FinalCheck(int finalShotCount)
     {
         if (PlayerPrefs.GetInt("amountPlayers") == 1)
@@ -118,7 +133,9 @@ public class GameSystem : MonoBehaviour
     private void LoadNextScene(int finalShotCount, int player, bool next)
     {
         scores.SetScore(courseIndex, Scores.GetWhoseTurn(), finalShotCount);
+
         scores.DetermineAmountPlayersAndSetScoresIntoPrefs(PlayerPrefs.GetInt("amountPlayers"));
+
         Scores.SetWhoseTurn(player);
 
         if (next)

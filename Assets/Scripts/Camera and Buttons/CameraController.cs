@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour
     public GameObject theBall;
     public Club theClub;
 
-    // Public variables
-
     // Private variables
     [SerializeField] float MIN_X;
     [SerializeField] float MAX_X;
@@ -19,11 +17,13 @@ public class CameraController : MonoBehaviour
     private Vector3 touchStart;
     private Vector3 offset;
 
+    // --- START ---
     private void Start()
     {
         offset = transform.position - theBall.transform.position;
     }
 
+    // --- UPDATE ---
     private void Update()
     {
         // Allowing the player to move the camera around

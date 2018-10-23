@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
     // Public variables
     public int playersPositionChoice;
 
+    // --- START ---
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -25,6 +26,7 @@ public class Ball : MonoBehaviour
         StartCoroutine(PositionTheBall());
     }
 
+    // --- METHODS ---
     private void OnCollisionEnter2D(Collision2D collision)
     {
         int randomSound = Random.Range(0, 3);

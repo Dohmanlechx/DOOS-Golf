@@ -31,6 +31,7 @@ public class Scores : MonoBehaviour
         }
     }
 
+    // --- AWAKE ---
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -107,7 +108,7 @@ public class Scores : MonoBehaviour
         return totalShotsCount;
     }
 
-    // Setter and storing in array
+    // Setters
     public void SetScore(int courseIndex, int playerIndex, int shotCount)
     {
         GetScores(playerIndex)[courseIndex] = shotCount;
@@ -119,11 +120,7 @@ public class Scores : MonoBehaviour
         PlayerPrefs.SetInt("whoseTurn", whoseTurn);
     }
 
-    private void Start()
-    {
-
-    }
-
+    // --- UPDATE ---
     private void Update()
     {
         // To make sure to always have connection with GameSystem
@@ -133,6 +130,7 @@ public class Scores : MonoBehaviour
         }
     }
 
+    // --- METHODS ---
     public static void NewGame()
     {
         player1Scores = new int[20];
@@ -176,7 +174,7 @@ public class Scores : MonoBehaviour
         }
     }
 
-    // Use this to SET Integer array
+    // To SET Integer array
     public static void SetScoresIntoPrefs(int[] scores, int playerIndex)
     {
         switch (playerIndex)
@@ -196,7 +194,7 @@ public class Scores : MonoBehaviour
         }
     }
 
-    // Use this to GET Integer array
+    // To GET Integer array
     public static int[] GetStoredScores(int playerIndex)
     {
         string thisPlayerScores = "";
@@ -224,7 +222,7 @@ public class Scores : MonoBehaviour
         {
             val[i] = int.TryParse(data[i], out score) ? score : 0;
         }
-        Debug.Log("val: " + val);
+
         return val;
     }
 
@@ -237,7 +235,7 @@ public class Scores : MonoBehaviour
         {
             result += ("|" + data[i]);
         }
-        Debug.Log("result: " + result);
+
         return result;
     }
 

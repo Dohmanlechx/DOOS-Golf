@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class BarricadeController : MonoBehaviour
 {
-
     // Cached references
     public GameSystem gameSystem;
     public CameraController cameraController;
@@ -18,6 +17,7 @@ public class BarricadeController : MonoBehaviour
     // Private variables
     private static int collisionHits = 0;
 
+    // --- START ---
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
@@ -28,6 +28,7 @@ public class BarricadeController : MonoBehaviour
         theClub = FindObjectOfType<Club>();
     }
 
+    // --- UPDATE ---
     private void Update()
     {
         if (theBall != null)
@@ -37,6 +38,7 @@ public class BarricadeController : MonoBehaviour
         }
     }
 
+    // --- METHODS ---
     private void OnCollisionEnter2D(Collision2D other)
     {
         collisionHits++;

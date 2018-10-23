@@ -67,13 +67,13 @@ public class CameraControllerChallenges : MonoBehaviour
         Camera.main.rect = wp;
     }
 
-    // Use this for initialization
+    // --- START ---
     void Start()
     {
         RescaleCamera();
     }
 
-    // Update is called once per frame
+    // --- UPDATE ---
     void Update()
     {
         RescaleCamera();

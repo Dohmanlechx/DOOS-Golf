@@ -10,11 +10,11 @@ public class ButtonScript : MonoBehaviour
     public Ball theBall;
     public Club theClub;
     public GameSystem gameSystem;
-    //public ScoreBoard scoreBoard;
 
     // Public variables
     public Button m_btnLeft, m_btnRight, m_btnScoreboard;
 
+    // --- START ---
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
@@ -34,6 +34,7 @@ public class ButtonScript : MonoBehaviour
         btnScoreboard.onClick.AddListener(LoadScoreboardScene);
     }
 
+    // --- UPDATE ---
     private void Update()
     {
         // If club is pressed, destroy the buttons
@@ -41,6 +42,7 @@ public class ButtonScript : MonoBehaviour
             Destroy(gameObject);
     }
 
+    // --- METHODS ---
     private void MoveBallToLeft()
     {
         if (theBall.playersPositionChoice >= 1 && theBall.playersPositionChoice <= 4)

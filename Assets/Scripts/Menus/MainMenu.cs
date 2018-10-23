@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
     // Private variables
     private static int lastCourseIndex;
 
-    //TODO: Gör om siffrorna för scenerna till ett index så att man senare kan ladda in sin senaste bana.
     private void OnMouseUp()
     {
         if (isContinue)

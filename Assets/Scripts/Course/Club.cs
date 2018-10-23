@@ -1,8 +1,7 @@
-﻿
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Club : MonoBehaviour
 {
@@ -25,10 +24,9 @@ public class Club : MonoBehaviour
     private bool shootIsReleased = false;
     private Vector3 ballPos;
     private Vector2 inputPos;
-    private Vector2 inputOffset;
     private float offset = 0.4f; // Use 0f for PC/Mac build
 
-    // Start
+    // --- START ---
     private void Start()
     {
         // Club's collider ignores Course's colliders
@@ -38,7 +36,7 @@ public class Club : MonoBehaviour
         PositionClubHook();
     }
 
-    // Update
+    // --- UPDATE ---
     private void Update()
     {
         if (isPressed)
@@ -48,8 +46,18 @@ public class Club : MonoBehaviour
 
         if (theBall != null)
         {
+            // Need to have this if statement for Course 3 and 4 to prevent a bug
+            if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.00f)
+                {
+                    ongoingShoot = false;
+                    MakeClubInvisible(false);
+                    UpdateHookPosition();
+                }
+            }
             // When ball is still, this executes. Why 0.02: if 0, player would wait too long to the ball to stop rolling
-            if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
+            else if (!alreadyExecuted && theBall.rb.velocity.magnitude <= 0.02f)
             // alreadyExecuted prevents it from running every frame
             {
                 ongoingShoot = false;
@@ -58,6 +66,8 @@ public class Club : MonoBehaviour
             }
         }
     }
+
+    // --- METHODS ---
 
     // When club colliders with ball
     private void OnCollisionEnter2D(Collision2D collision)
@@ -111,7 +121,7 @@ public class Club : MonoBehaviour
 
         // Max drag distance
         if (Vector3.Distance(position, theBall.transform.position) > maxDragDistance)
-            transform.position = clubHookRb.position + ((inputPos + inputOffset) - clubHookRb.position).normalized * maxDragDistance;
+            transform.position = clubHookRb.position + ((inputPos) - clubHookRb.position).normalized * maxDragDistance;
         else
             transform.position = position;
     }

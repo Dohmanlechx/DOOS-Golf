@@ -22,6 +22,7 @@ public class ScoreBoard : MonoBehaviour
     private static int lastCourseIndex;
     private int amountPlayers;
 
+    // --- START ---
     private void Start()
     {
         gameSystem = FindObjectOfType<GameSystem>();
@@ -53,6 +54,7 @@ public class ScoreBoard : MonoBehaviour
         UpdateScoreBoard();
     }
 
+    // --- METHODS ---
     private void UpdateScoreBoard()
     {
         if (scores != null)

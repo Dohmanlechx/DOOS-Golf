@@ -14,6 +14,8 @@ public class SteepController : MonoBehaviour
     [SerializeField] float myGravityScale = 0.5f;
     [SerializeField] float myMass = 0.2f;
 
+    // --- METHODS ---
+
     // When the ball enters the area, gravity activates
     private void OnTriggerEnter2D(Collider2D collision)
     {
