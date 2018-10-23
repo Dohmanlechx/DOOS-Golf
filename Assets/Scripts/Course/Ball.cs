@@ -8,21 +8,43 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rb;
     public Club theClub;
     public AudioSource audioSource;
-
-    // Private variables
-    [SerializeField] List<Transform> startPositions;
-    [SerializeField] List<AudioClip> sounds;
+    public SpriteRenderer spriteRenderer;
+    public Sprite ballDefault, ballBlue, ballYellow, ballRed;
 
     // Public variables
     public int playersPositionChoice;
 
+    // Private variables
+    [SerializeField] List<Transform> startPositions;
+    [SerializeField] List<AudioClip> sounds;
+    private int whoseTurnColor;
+
     // --- START ---
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         // 2 is the middle position, set as default
         playersPositionChoice = 2;
-        rb = GetComponent<Rigidbody2D>();
+        whoseTurnColor = PlayerPrefs.GetInt("whoseTurn");
+
+        // Switching the color on ball depending player
+        switch (whoseTurnColor)
+        {
+            case 2:
+                gameObject.GetComponent<SpriteRenderer>().sprite = ballRed;
+                break;
+            case 3:
+                gameObject.GetComponent<SpriteRenderer>().sprite = ballYellow;
+                break;
+            case 4:
+                gameObject.GetComponent<SpriteRenderer>().sprite = ballBlue;
+                break;
+            default:
+                gameObject.GetComponent<SpriteRenderer>().sprite = ballDefault;
+                break;
+        }
+
         StartCoroutine(PositionTheBall());
     }
 

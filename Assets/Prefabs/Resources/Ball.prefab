@@ -188,6 +188,12 @@ MonoBehaviour:
   rb: {fileID: 50981890104475068}
   theClub: {fileID: 0}
   audioSource: {fileID: 82477901800459584}
+  spriteRenderer: {fileID: 212965168107887204}
+  ballDefault: {fileID: 21300000, guid: 39303692dd194a443a4a45d4dc1d0a85, type: 3}
+  ballBlue: {fileID: 21300000, guid: bbf5cff2fc0b24944a15f330c2db399c, type: 3}
+  ballYellow: {fileID: 21300000, guid: 60a71501ec67598448bbb4295190a675, type: 3}
+  ballRed: {fileID: 21300000, guid: 9b050cd0c6d8ad643a896dea47d07117, type: 3}
+  playersPositionChoice: 3
   startPositions:
   - {fileID: 0}
   - {fileID: 0}
@@ -198,7 +204,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ddc183e1a45d144cbed765a2f2ac614, type: 3}
   - {fileID: 8300000, guid: 98d6e0cee4be7b2408c4e9cb1c9e1750, type: 3}
   - {fileID: 8300000, guid: 8b452510244fbb04ab6e5c299ea5f71a, type: 3}
-  playersPositionChoice: 3
 --- !u!212 &212965168107887204
 SpriteRenderer:
   m_ObjectHideFlags: 1
