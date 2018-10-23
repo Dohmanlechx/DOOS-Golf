@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 456033502}
   - component: {fileID: 456033501}
   - component: {fileID: 456033500}
+  - component: {fileID: 456033503}
   m_Layer: 0
   m_Name: Main Camera Challenge 2
   m_TagString: MainCamera
@@ -268,8 +269,19 @@ Transform:
   m_Children:
   - {fileID: 1720859408}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456033503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456033499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba329e127065f6c479588bfd34ffff42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &537197467
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,11 +629,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4632326545899450, guid: 95de005246071284cb5933d149e90a9b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212567145289228180, guid: 95de005246071284cb5933d149e90a9b,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867269979987352, guid: 95de005246071284cb5933d149e90a9b, type: 2}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

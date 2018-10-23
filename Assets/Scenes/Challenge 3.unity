@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 1220212041}
   - component: {fileID: 1220212040}
   - component: {fileID: 1220212039}
+  - component: {fileID: 1220212042}
   m_Layer: 0
   m_Name: Main Camera Challenge 3
   m_TagString: MainCamera
@@ -847,6 +848,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220212042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220212038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba329e127065f6c479588bfd34ffff42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1231817403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4464969656191788, guid: 71dfa5c51db7138479be05653d1055e2,
