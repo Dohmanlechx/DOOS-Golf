@@ -65,21 +65,21 @@ public class Swipe : MonoBehaviour
             hasThrown = true;
         }
 
-        if (hasFreeze == true)
-        {
+        //Keeps the ball frozen, this is probably obsolete
+        if (hasFreeze == true){
+            Debug.Log("Real position: " + currentPos);
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0;
             GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteY;
         }
 
-        if (hasFreeze != true && hasBounced != true && hasDied != true)
-        {
+        //If the ball is fired it will turn white
+        if (hasFreeze != true && hasBounced != true && hasDied != true && hasWon != true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
 
-        if (hasDied == true)
-        {
+        if (hasDied == true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteR;
         }
     }
@@ -122,7 +122,7 @@ public class Swipe : MonoBehaviour
         }
 
         //If the ball is fired it will turn white
-        if (hasFreeze != true && hasBounced != true && hasDied != true){
+        if (hasFreeze != true && hasBounced != true && hasDied != true && hasWon != true){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteW;
         }
 
